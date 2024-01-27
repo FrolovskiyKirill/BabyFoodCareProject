@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238342B6534D3005A6DE0 /* AppDelegate.swift */; };
+		0EC238372B6534D3005A6DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */; };
+		0EC238392B6534D3005A6DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238382B6534D3005A6DE0 /* ViewController.swift */; };
+		0EC2383C2B6534D3005A6DE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383A2B6534D3005A6DE0 /* Main.storyboard */; };
+		0EC2383E2B6534D4005A6DE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */; };
+		0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */; };
+		0EC2384C2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */; };
+		0EC238562B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */; };
+		0EC238582B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EC238482B6534D4005A6DE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EC238292B6534D2005A6DE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EC238302B6534D3005A6DE0;
+			remoteInfo = BabyFoodCareProject;
+		};
+		0EC238522B6534D4005A6DE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EC238292B6534D2005A6DE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EC238302B6534D3005A6DE0;
+			remoteInfo = BabyFoodCareProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EC238312B6534D3005A6DE0 /* BabyFoodCareProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyFoodCareProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC238342B6534D3005A6DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0EC238382B6534D3005A6DE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EC2383B2B6534D3005A6DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EC238402B6534D4005A6DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0EC238422B6534D4005A6DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EC238472B6534D4005A6DE0 /* BabyFoodCareProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyFoodCareProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectTests.swift; sourceTree = "<group>"; };
+		0EC238512B6534D4005A6DE0 /* BabyFoodCareProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyFoodCareProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITests.swift; sourceTree = "<group>"; };
+		0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EC2382E2B6534D3005A6DE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC238442B6534D4005A6DE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC2384E2B6534D4005A6DE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EC238282B6534D2005A6DE0 = {
+			isa = PBXGroup;
+			children = (
+				0EC238332B6534D3005A6DE0 /* BabyFoodCareProject */,
+				0EC2384A2B6534D4005A6DE0 /* BabyFoodCareProjectTests */,
+				0EC238542B6534D4005A6DE0 /* BabyFoodCareProjectUITests */,
+				0EC238322B6534D3005A6DE0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0EC238322B6534D3005A6DE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EC238312B6534D3005A6DE0 /* BabyFoodCareProject.app */,
+				0EC238472B6534D4005A6DE0 /* BabyFoodCareProjectTests.xctest */,
+				0EC238512B6534D4005A6DE0 /* BabyFoodCareProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EC238332B6534D3005A6DE0 /* BabyFoodCareProject */ = {
+			isa = PBXGroup;
+			children = (
+				0EC238342B6534D3005A6DE0 /* AppDelegate.swift */,
+				0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */,
+				0EC238382B6534D3005A6DE0 /* ViewController.swift */,
+				0EC2383A2B6534D3005A6DE0 /* Main.storyboard */,
+				0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */,
+				0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */,
+				0EC238422B6534D4005A6DE0 /* Info.plist */,
+			);
+			path = BabyFoodCareProject;
+			sourceTree = "<group>";
+		};
+		0EC2384A2B6534D4005A6DE0 /* BabyFoodCareProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */,
+			);
+			path = BabyFoodCareProjectTests;
+			sourceTree = "<group>";
+		};
+		0EC238542B6534D4005A6DE0 /* BabyFoodCareProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */,
+				0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */,
+			);
+			path = BabyFoodCareProjectUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EC238302B6534D3005A6DE0 /* BabyFoodCareProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC2385B2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProject" */;
+			buildPhases = (
+				0EC2382D2B6534D3005A6DE0 /* Sources */,
+				0EC2382E2B6534D3005A6DE0 /* Frameworks */,
+				0EC2382F2B6534D3005A6DE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BabyFoodCareProject;
+			productName = BabyFoodCareProject;
+			productReference = 0EC238312B6534D3005A6DE0 /* BabyFoodCareProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0EC238462B6534D4005A6DE0 /* BabyFoodCareProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC2385E2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectTests" */;
+			buildPhases = (
+				0EC238432B6534D4005A6DE0 /* Sources */,
+				0EC238442B6534D4005A6DE0 /* Frameworks */,
+				0EC238452B6534D4005A6DE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0EC238492B6534D4005A6DE0 /* PBXTargetDependency */,
+			);
+			name = BabyFoodCareProjectTests;
+			productName = BabyFoodCareProjectTests;
+			productReference = 0EC238472B6534D4005A6DE0 /* BabyFoodCareProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0EC238502B6534D4005A6DE0 /* BabyFoodCareProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC238612B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectUITests" */;
+			buildPhases = (
+				0EC2384D2B6534D4005A6DE0 /* Sources */,
+				0EC2384E2B6534D4005A6DE0 /* Frameworks */,
+				0EC2384F2B6534D4005A6DE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0EC238532B6534D4005A6DE0 /* PBXTargetDependency */,
+			);
+			name = BabyFoodCareProjectUITests;
+			productName = BabyFoodCareProjectUITests;
+			productReference = 0EC238512B6534D4005A6DE0 /* BabyFoodCareProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EC238292B6534D2005A6DE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0EC238302B6534D3005A6DE0 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					0EC238462B6534D4005A6DE0 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 0EC238302B6534D3005A6DE0;
+					};
+					0EC238502B6534D4005A6DE0 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 0EC238302B6534D3005A6DE0;
+					};
+				};
+			};
+			buildConfigurationList = 0EC2382C2B6534D3005A6DE0 /* Build configuration list for PBXProject "BabyFoodCareProject" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EC238282B6534D2005A6DE0;
+			productRefGroup = 0EC238322B6534D3005A6DE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EC238302B6534D3005A6DE0 /* BabyFoodCareProject */,
+				0EC238462B6534D4005A6DE0 /* BabyFoodCareProjectTests */,
+				0EC238502B6534D4005A6DE0 /* BabyFoodCareProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EC2382F2B6534D3005A6DE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */,
+				0EC2383E2B6534D4005A6DE0 /* Assets.xcassets in Resources */,
+				0EC2383C2B6534D3005A6DE0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC238452B6534D4005A6DE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC2384F2B6534D4005A6DE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EC2382D2B6534D3005A6DE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC238392B6534D3005A6DE0 /* ViewController.swift in Sources */,
+				0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */,
+				0EC238372B6534D3005A6DE0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC238432B6534D4005A6DE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC2384C2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EC2384D2B6534D4005A6DE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC238562B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift in Sources */,
+				0EC238582B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0EC238492B6534D4005A6DE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EC238302B6534D3005A6DE0 /* BabyFoodCareProject */;
+			targetProxy = 0EC238482B6534D4005A6DE0 /* PBXContainerItemProxy */;
+		};
+		0EC238532B6534D4005A6DE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EC238302B6534D3005A6DE0 /* BabyFoodCareProject */;
+			targetProxy = 0EC238522B6534D4005A6DE0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0EC2383A2B6534D3005A6DE0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EC2383B2B6534D3005A6DE0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EC238402B6534D4005A6DE0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EC238592B6534D4005A6DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0EC2385A2B6534D4005A6DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EC2385C2B6534D4005A6DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BabyFoodCareProject/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EC2385D2B6534D4005A6DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BabyFoodCareProject/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0EC2385F2B6534D4005A6DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyFoodCareProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BabyFoodCareProject";
+			};
+			name = Debug;
+		};
+		0EC238602B6534D4005A6DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyFoodCareProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BabyFoodCareProject";
+			};
+			name = Release;
+		};
+		0EC238622B6534D4005A6DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BabyFoodCareProject;
+			};
+			name = Debug;
+		};
+		0EC238632B6534D4005A6DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kirill.Frolovskiy.BabyFoodCareProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BabyFoodCareProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EC2382C2B6534D3005A6DE0 /* Build configuration list for PBXProject "BabyFoodCareProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC238592B6534D4005A6DE0 /* Debug */,
+				0EC2385A2B6534D4005A6DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EC2385B2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC2385C2B6534D4005A6DE0 /* Debug */,
+				0EC2385D2B6534D4005A6DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EC2385E2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC2385F2B6534D4005A6DE0 /* Debug */,
+				0EC238602B6534D4005A6DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EC238612B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC238622B6534D4005A6DE0 /* Debug */,
+				0EC238632B6534D4005A6DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EC238292B6534D2005A6DE0 /* Project object */;
+}
