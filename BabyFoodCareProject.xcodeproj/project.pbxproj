@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238342B6534D3005A6DE0 /* AppDelegate.swift */; };
 		0EC238372B6534D3005A6DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */; };
-		0EC238392B6534D3005A6DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238382B6534D3005A6DE0 /* ViewController.swift */; };
-		0EC2383C2B6534D3005A6DE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383A2B6534D3005A6DE0 /* Main.storyboard */; };
+		0EC238392B6534D3005A6DE0 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238382B6534D3005A6DE0 /* ProductViewController.swift */; };
 		0EC2383E2B6534D4005A6DE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */; };
 		0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */; };
 		0EC2384C2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */; };
 		0EC238562B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */; };
 		0EC238582B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */; };
+		0EC238652B653711005A6DE0 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238642B653710005A6DE0 /* ProductDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,7 @@
 		0EC238312B6534D3005A6DE0 /* BabyFoodCareProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyFoodCareProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC238342B6534D3005A6DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0EC238382B6534D3005A6DE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0EC2383B2B6534D3005A6DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EC238382B6534D3005A6DE0 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EC238402B6534D4005A6DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EC238422B6534D4005A6DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		0EC238512B6534D4005A6DE0 /* BabyFoodCareProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyFoodCareProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITests.swift; sourceTree = "<group>"; };
 		0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0EC238642B653710005A6DE0 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +99,10 @@
 		0EC238332B6534D3005A6DE0 /* BabyFoodCareProject */ = {
 			isa = PBXGroup;
 			children = (
-				0EC238342B6534D3005A6DE0 /* AppDelegate.swift */,
-				0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */,
-				0EC238382B6534D3005A6DE0 /* ViewController.swift */,
-				0EC2383A2B6534D3005A6DE0 /* Main.storyboard */,
-				0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */,
-				0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */,
-				0EC238422B6534D4005A6DE0 /* Info.plist */,
+				0EC238672B6543AC005A6DE0 /* Application */,
+				0EC238662B65435B005A6DE0 /* Resources */,
+				0EC238382B6534D3005A6DE0 /* ProductViewController.swift */,
+				0EC238642B653710005A6DE0 /* ProductDetailsViewController.swift */,
 			);
 			path = BabyFoodCareProject;
 			sourceTree = "<group>";
@@ -125,6 +122,25 @@
 				0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */,
 			);
 			path = BabyFoodCareProjectUITests;
+			sourceTree = "<group>";
+		};
+		0EC238662B65435B005A6DE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */,
+				0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */,
+				0EC238422B6534D4005A6DE0 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0EC238672B6543AC005A6DE0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0EC238342B6534D3005A6DE0 /* AppDelegate.swift */,
+				0EC238362B6534D3005A6DE0 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +249,6 @@
 			files = (
 				0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */,
 				0EC2383E2B6534D4005A6DE0 /* Assets.xcassets in Resources */,
-				0EC2383C2B6534D3005A6DE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EC238392B6534D3005A6DE0 /* ViewController.swift in Sources */,
+				0EC238392B6534D3005A6DE0 /* ProductViewController.swift in Sources */,
 				0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */,
 				0EC238372B6534D3005A6DE0 /* SceneDelegate.swift in Sources */,
+				0EC238652B653711005A6DE0 /* ProductDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EC2383A2B6534D3005A6DE0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EC2383B2B6534D3005A6DE0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,10 +451,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BabyFoodCareProject/Info.plist;
+				INFOPLIST_FILE = BabyFoodCareProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,10 +477,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BabyFoodCareProject/Info.plist;
+				INFOPLIST_FILE = BabyFoodCareProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
