@@ -16,13 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         let navBarController = UINavigationController(rootViewController: tabBarController)
         
-//        let homeViewController = HomeAssambly.makeModule()
-        let productViewController = ProductViewController()
-        productViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
-        let productDetailsViewController = ProductDetailsViewController()
-        productDetailsViewController.tabBarItem = UITabBarItem(title: "Detail", image: nil, tag: 1)
+        let productsView = ProductsAssembly.makeModule()
+        productsView.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
+        let productDetailsView = ProductDetailsAssembly.makeModule()
+        productDetailsView.tabBarItem = UITabBarItem(title: "Detail", image: nil, tag: 1)
         
-        tabBarController.viewControllers = [productViewController, productDetailsViewController]
+        tabBarController.viewControllers = [productsView, productDetailsView]
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navBarController
