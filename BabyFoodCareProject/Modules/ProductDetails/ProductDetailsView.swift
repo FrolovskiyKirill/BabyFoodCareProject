@@ -17,6 +17,7 @@ class ProductDetailsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
+        presenter?.viewDidLoad()
     }
 }
 

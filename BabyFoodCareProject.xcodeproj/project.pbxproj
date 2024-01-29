@@ -30,7 +30,6 @@
 		0EC2387A2B654C84005A6DE0 /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238792B654C84005A6DE0 /* ProductsRouter.swift */; };
 		0EC2387C2B654CB7005A6DE0 /* ProductsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2387B2B654CB7005A6DE0 /* ProductsAssembly.swift */; };
 		0EC2387E2B6583A5005A6DE0 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2387D2B6583A5005A6DE0 /* ProductsModel.swift */; };
-		0EC238802B658E9D005A6DE0 /* BooksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2387F2B658E9D005A6DE0 /* BooksModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		0EC238792B654C84005A6DE0 /* ProductsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
 		0EC2387B2B654CB7005A6DE0 /* ProductsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAssembly.swift; sourceTree = "<group>"; };
 		0EC2387D2B6583A5005A6DE0 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
-		0EC2387F2B658E9D005A6DE0 /* BooksModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 		0EC238332B6534D3005A6DE0 /* BabyFoodCareProject */ = {
 			isa = PBXGroup;
 			children = (
-				0EC2386F2B6548AD005A6DE0 /* Entities */,
 				0EC238722B654BB7005A6DE0 /* Modules */,
 				0EC238682B654798005A6DE0 /* Services */,
 				0EC238672B6543AC005A6DE0 /* Application */,
@@ -197,7 +194,6 @@
 			children = (
 				0EC2387D2B6583A5005A6DE0 /* ProductsModel.swift */,
 				0EA2DF6C2B6654D900D4E725 /* ProductDetailsModel.swift */,
-				0EC2387F2B658E9D005A6DE0 /* BooksModels.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -205,6 +201,7 @@
 		0EC238722B654BB7005A6DE0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0EC2386F2B6548AD005A6DE0 /* Entities */,
 				0EC238732B654BC9005A6DE0 /* ProductsModul */,
 				0EC238742B654C4D005A6DE0 /* ProductDetails */,
 			);
@@ -380,7 +377,6 @@
 				0EA2DF6D2B6654D900D4E725 /* ProductDetailsModel.swift in Sources */,
 				0EA2DF712B665DCD00D4E725 /* ProductDetailsInteractor.swift in Sources */,
 				0EA2DF6F2B665DA800D4E725 /* ProductDetailsAssembly.swift in Sources */,
-				0EC238802B658E9D005A6DE0 /* BooksModels.swift in Sources */,
 				0EA2DF752B665DF200D4E725 /* ProductDetailsRouter.swift in Sources */,
 				0EA2DF782B668F1900D4E725 /* ProductsCell.swift in Sources */,
 				0EC238762B654C68005A6DE0 /* ProductsPresenter.swift in Sources */,

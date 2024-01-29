@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Welcome: Codable {
+struct ProductDetailsModel: Codable {
     let title: String
     let foodType: String
     let description: String
@@ -17,7 +17,7 @@ struct Welcome: Codable {
     let allergen: Bool
     let allergenDescription: String
     let howToServe: String
-    let howToServeImageURL: [String]
+    let howToServeImageURL: [String]?
     let calories: Int
     let protein: Int
     let fats: Int

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IProductDetailsPresentor: AnyObject {
-    
+    func viewDidLoad()
 }
 
 class ProductDetailsPresenter {
@@ -23,5 +23,7 @@ class ProductDetailsPresenter {
 }
 
 extension ProductDetailsPresenter: IProductDetailsPresentor {
-    
+    func viewDidLoad() {
+        interactor.getData()
+    }
 }

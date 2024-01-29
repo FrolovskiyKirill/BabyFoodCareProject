@@ -24,7 +24,3 @@ struct ProductsModel: Codable {
     let fats: Int
     let carbs: Int
 }
-
-//struct ProductsResponse: Codable {
-//    let productsModel: [ProductsModel]
-//}
