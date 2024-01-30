@@ -220,7 +220,7 @@
 			children = (
 				0EC2386F2B6548AD005A6DE0 /* Entities */,
 				0EC238732B654BC9005A6DE0 /* ProductsModul */,
-				0EC238742B654C4D005A6DE0 /* ProductDetails */,
+				0EC238742B654C4D005A6DE0 /* ProductDetailsModul */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			path = ProductsModul;
 			sourceTree = "<group>";
 		};
-		0EC238742B654C4D005A6DE0 /* ProductDetails */ = {
+		0EC238742B654C4D005A6DE0 /* ProductDetailsModul */ = {
 			isa = PBXGroup;
 			children = (
 				0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */,
@@ -247,7 +247,7 @@
 				0EA2DF742B665DF200D4E725 /* ProductDetailsRouter.swift */,
 				0EC238642B653710005A6DE0 /* ProductDetailsView.swift */,
 			);
-			path = ProductDetails;
+			path = ProductDetailsModul;
 			sourceTree = "<group>";
 		};
 		18ED278B59814EC3ACD55DDA /* Pods */ = {
@@ -260,7 +260,6 @@
 				CA8AF26113178C1D9A7AEDF9 /* Pods-BabyFoodCareProjectTests.debug.xcconfig */,
 				424D2AD2DF7E67F8731EDEF8 /* Pods-BabyFoodCareProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -614,7 +613,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -677,7 +676,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
