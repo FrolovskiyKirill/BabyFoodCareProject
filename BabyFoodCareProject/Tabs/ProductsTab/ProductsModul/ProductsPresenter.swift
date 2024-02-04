@@ -7,27 +7,30 @@
 
 import Foundation
 
-protocol IProductsPresenter: AnyObject {
+protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
 }
 
-class ProductsPresenter {
-    weak var view: IProductsView?
-    var interactor: IProductsInteractor
+protocol ProductsPresenterOutput: AnyObject {
+
+
+}
+
+final class ProductsPresenter {
+    weak var view: ProductsViewOutput?
+    var interactor: ProductsInteractorInput
     var router: IProductsRouter
     
-//    var authority: [Authority]?
     var products: [ProductsModel]?
     
-    init(interactor: IProductsInteractor, router: IProductsRouter) {
+    init(interactor: ProductsInteractorInput, router: IProductsRouter) {
         self.interactor = interactor
         self.router = router
     }
 }
 
-extension ProductsPresenter: IProductsPresenter {
-    
+extension ProductsPresenter: ProductsPresenterInput { 
     func viewDidLoad() {
         interactor.getData()
     }
@@ -36,4 +39,9 @@ extension ProductsPresenter: IProductsPresenter {
         self.products = products
         view?.updateProducts(with: products)
     }
+}
+
+extension ProductsPresenter: ProductsPresenterOutput {
+    
+
 }

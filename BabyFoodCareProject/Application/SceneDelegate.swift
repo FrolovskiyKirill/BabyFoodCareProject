@@ -12,21 +12,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         let tabBarController = UITabBarController()
-        let navBarController = UINavigationController(rootViewController: tabBarController)
-        
+
         let productsView = ProductsAssembly.makeModule()
-        productsView.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
-        let productDetailsView = ProductDetailsAssembly.makeModule()
-        productDetailsView.tabBarItem = UITabBarItem(title: "Detail", image: nil, tag: 1)
+        productsView.tabBarItem = UITabBarItem(title: "Home", image: .actions, tag: 0)
+        let productsNavigationController = UINavigationController(rootViewController: productsView)
         
-        tabBarController.viewControllers = [productsView, productDetailsView]
-        
+        let favoriteView = FavoriteAssembly.makeModule()
+        favoriteView.tabBarItem = UITabBarItem(title: "Favorite", image: .checkmark, tag: 2)
+        let favoriteViewNavigationController = UINavigationController(rootViewController: favoriteView)
+
+        let accountView = AccountAssembly.makeModule()
+        accountView.tabBarItem = UITabBarItem(title: "Account", image: .add, tag: 2)
+        let accountNavigationController = UINavigationController(rootViewController: accountView)
+
+        tabBarController.viewControllers = [productsNavigationController, favoriteViewNavigationController, accountNavigationController]
+
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = navBarController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
-        
+
         self.window = window
     }
 }

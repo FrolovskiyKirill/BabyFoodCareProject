@@ -7,15 +7,17 @@
 
 import Foundation
 
-protocol IProductsInteractor {
+protocol ProductsInteractorInput {
     func getData()
 }
+protocol ProductsInteractorOutput {
+    
+}
 
-class ProductsInteractor: IProductsInteractor {
-    weak var presenter: IProductsPresenter?
+final class ProductsInteractor: ProductsInteractorInput {
+    weak var presenter: ProductsPresenterInput?
     let APIClient: ProductsProtocol
     
-//    var authority: [Authority]?
     var products: [ProductsModel]?
     
     init(APIClient: APIClient) {
@@ -33,4 +35,8 @@ class ProductsInteractor: IProductsInteractor {
             }
         }
     }
+}
+
+extension ProductsInteractor: ProductsInteractorOutput {
+
 }

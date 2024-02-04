@@ -11,6 +11,6 @@ protocol IProductDetailsRouter {
     
 }
 
-class ProductDetailsRouter: IProductDetailsRouter {
-    weak var presenter: IProductDetailsPresentor?
+final class ProductDetailsRouter: IProductDetailsRouter {
+    weak var presenter: ProductDetailsPresenterOutput?
 }

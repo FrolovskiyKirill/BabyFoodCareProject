@@ -7,13 +7,15 @@
 
 import UIKit
 
-protocol IProductsView: AnyObject {
+protocol ProductsViewInput: AnyObject { }
+
+protocol ProductsViewOutput: AnyObject {
+    func viewDidLoad()
     func updateProducts(with products: [ProductsModel])
 }
 
-class ProductsView: UIViewController {
-    var presenter: IProductsPresenter?
-//    var authorities: [Authority] = [] // Данные для отображения
+final class ProductsView: UIViewController {
+    var presenter: ProductsPresenterInput?
     var products: [ProductsModel] = []
     
     private lazy var collectionView: UICollectionView = {
@@ -49,7 +51,7 @@ extension ProductsView: UICollectionViewDataSource {
     }
 }
 
-extension ProductsView: IProductsView {
+extension ProductsView: ProductsViewOutput {
     func updateProducts(with products: [ProductsModel]) {
         self.products = products
         DispatchQueue.main.async {
@@ -59,7 +61,7 @@ extension ProductsView: IProductsView {
 }
 
 // Вынести в отдельный файл
-class ProductsCell: UICollectionViewCell {
+final class ProductsCell: UICollectionViewCell {
     static let identifier = "ProductsCell"
     
     private let nameLabel: UILabel = {
@@ -79,6 +81,6 @@ class ProductsCell: UICollectionViewCell {
     }
     
     func configure(with products: ProductsModel) {
-        nameLabel.text = products.title
+        nameLabel.text = products.foodType
     }
 }

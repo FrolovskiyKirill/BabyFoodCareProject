@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailsAssembly {
+final class ProductDetailsAssembly {
     static func makeModule() -> UIViewController {
         let APIClient = APIClient()
         let router = ProductDetailsRouter()

@@ -11,7 +11,7 @@ enum APIRequestError: Error {
     case badUrl, noData
 }
 
-class APIRequestDispatcher {
+final class APIRequestDispatcher {
     class func request<T: Codable>(apiRouter: APIRouter) async throws -> T {
         var components = URLComponents()
         components.host = apiRouter.host
@@ -36,8 +36,10 @@ class APIRequestDispatcher {
                 }
 
                 do {
+//                    print(urlRequest.url?.absoluteString)
+//                    print(String(data: data, encoding: .utf8))
                     let responseObject = try JSONDecoder().decode(T.self, from: data)
-                    DispatchQueue.main.async { // 6
+                    DispatchQueue.main.async {
                         return continuation.resume(with: .success(responseObject))
                     }
                 } catch {

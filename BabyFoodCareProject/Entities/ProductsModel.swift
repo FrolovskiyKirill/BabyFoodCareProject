@@ -5,6 +5,8 @@
 //  Created by Kirill Frolovskiy on 27.01.2024.
 //
 
+import Foundation
+
 struct ProductsModel: Codable {    
     let id: Int
     let title: String

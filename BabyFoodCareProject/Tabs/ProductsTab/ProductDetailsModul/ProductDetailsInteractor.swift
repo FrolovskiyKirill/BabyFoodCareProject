@@ -7,27 +7,32 @@
 
 import Foundation
 
-protocol IProductDetailsInteractor {
+protocol ProductDetailsInteractorInput {
     func getData()
 }
+protocol ProductDetailsInteractorOutput { 
+    
+}
 
-class ProductDetailsInteractor: IProductDetailsInteractor {
-    weak var presenter: IProductDetailsPresentor?
+final class ProductDetailsInteractor: ProductDetailsInteractorInput {
+    weak var presenter: ProductDetailsPresenterInput?
     let APIClient: ProductDetailsProtocol
     
     let poductID: Int = 8
-    var productDetails: [ProductDetailsModel]?
+    var productDetails: ProductDetailsModel?
     
     init(APIClient: APIClient) {
         self.APIClient = APIClient
     }
-    
+}
+
+extension ProductDetailsInteractor: ProductDetailsInteractorOutput {
     func getData() {
         Task.init {
             do {
                 self.productDetails = try await APIClient.getProductDetails(poductID: poductID)
                 guard let productDetails = productDetails else { return }
-                print(productDetails.first ?? "NO DATA") // Убрать
+                print(productDetails.title) // Убрать
             } catch {
                 print("Fetching establishments failed with error \(error)")
             }

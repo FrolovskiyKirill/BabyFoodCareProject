@@ -30,8 +30,8 @@ enum APIRouter {
         switch self {
         case .getProducts:
             return "/kir/food"
-        case .getProductDetails:
-            return "/kir/food"
+        case .getProductDetails(let poductID):
+            return "/kir/food/\(poductID)"
         }
     }
     
@@ -42,13 +42,10 @@ enum APIRouter {
         }
     }
     
-    // Как возвращать не массив?
     var parameters: [URLQueryItem] {
         switch self {
-        case .getProducts:
+        case .getProducts, .getProductDetails:
             return []
-        case .getProductDetails(let poductID):
-            return [URLQueryItem(name: "food_id", value: "\(poductID)")]
         }
     }
 }
