@@ -17,6 +17,12 @@
 		0E764B752B6FDA52001924CF /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B742B6FDA52001924CF /* AccountPresenter.swift */; };
 		0E764B772B6FDA5C001924CF /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B762B6FDA5C001924CF /* AccountRouter.swift */; };
 		0E764B792B6FDA66001924CF /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B782B6FDA66001924CF /* AccountView.swift */; };
+		0E764B7E2B6FFC9D001924CF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B7D2B6FFC9D001924CF /* Coordinator.swift */; };
+		0E764B802B70042E001924CF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B7F2B70042E001924CF /* AppCoordinator.swift */; };
+		0E764B822B700A30001924CF /* ProductsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B812B700A30001924CF /* ProductsCoordinator.swift */; };
+		0E764B842B700B43001924CF /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B832B700B43001924CF /* FavoriteCoordinator.swift */; };
+		0E764B862B700BB3001924CF /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B852B700BB3001924CF /* AccountCoordinator.swift */; };
+		0E764B882B700D45001924CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B872B700D45001924CF /* TabBarController.swift */; };
 		0EA2DF6D2B6654D900D4E725 /* ProductDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF6C2B6654D900D4E725 /* ProductDetailsModel.swift */; };
 		0EA2DF6F2B665DA800D4E725 /* ProductDetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */; };
 		0EA2DF712B665DCD00D4E725 /* ProductDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF702B665DCD00D4E725 /* ProductDetailsInteractor.swift */; };
@@ -74,6 +80,12 @@
 		0E764B742B6FDA52001924CF /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
 		0E764B762B6FDA5C001924CF /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
 		0E764B782B6FDA66001924CF /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		0E764B7D2B6FFC9D001924CF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0E764B7F2B70042E001924CF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0E764B812B700A30001924CF /* ProductsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCoordinator.swift; sourceTree = "<group>"; };
+		0E764B832B700B43001924CF /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
+		0E764B852B700BB3001924CF /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
+		0E764B872B700D45001924CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0EA2DF6C2B6654D900D4E725 /* ProductDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsModel.swift; sourceTree = "<group>"; };
 		0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsAssembly.swift; sourceTree = "<group>"; };
 		0EA2DF702B665DCD00D4E725 /* ProductDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -188,6 +200,35 @@
 			path = AccountModule;
 			sourceTree = "<group>";
 		};
+		0E764B7A2B6FF95D001924CF /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0E764B7B2B6FFA9A001924CF /* Сoordinators */,
+				0E764B7C2B6FFAA3001924CF /* Controllers */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		0E764B7B2B6FFA9A001924CF /* Сoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0E764B7D2B6FFC9D001924CF /* Coordinator.swift */,
+				0E764B7F2B70042E001924CF /* AppCoordinator.swift */,
+				0E764B812B700A30001924CF /* ProductsCoordinator.swift */,
+				0E764B832B700B43001924CF /* FavoriteCoordinator.swift */,
+				0E764B852B700BB3001924CF /* AccountCoordinator.swift */,
+			);
+			path = "Сoordinators";
+			sourceTree = "<group>";
+		};
+		0E764B7C2B6FFAA3001924CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E764B872B700D45001924CF /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		0EA2DF762B668EF300D4E725 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,10 +262,11 @@
 		0EC238332B6534D3005A6DE0 /* BabyFoodCareProject */ = {
 			isa = PBXGroup;
 			children = (
+				0EC238672B6543AC005A6DE0 /* Application */,
+				0E764B7A2B6FF95D001924CF /* Navigation */,
+				0EC238682B654798005A6DE0 /* Services */,
 				0EC2386F2B6548AD005A6DE0 /* Entities */,
 				0EC238722B654BB7005A6DE0 /* Tabs */,
-				0EC238682B654798005A6DE0 /* Services */,
-				0EC238672B6543AC005A6DE0 /* Application */,
 				0EC238662B65435B005A6DE0 /* Resources */,
 			);
 			path = BabyFoodCareProject;
@@ -593,19 +635,25 @@
 				0EC2386E2B654880005A6DE0 /* APIClients.swift in Sources */,
 				0EC2386A2B6547F4005A6DE0 /* APIRouter.swift in Sources */,
 				0E764B6B2B6FD9EF001924CF /* FavoritePresenter.swift in Sources */,
+				0E764B802B70042E001924CF /* AppCoordinator.swift in Sources */,
 				0E764B692B6FD9D4001924CF /* FavoriteInteractor.swift in Sources */,
 				0EC2387C2B654CB7005A6DE0 /* ProductsAssembly.swift in Sources */,
+				0E764B822B700A30001924CF /* ProductsCoordinator.swift in Sources */,
 				0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */,
 				0EC2387E2B6583A5005A6DE0 /* ProductsModel.swift in Sources */,
 				0EC238372B6534D3005A6DE0 /* SceneDelegate.swift in Sources */,
 				0EC2387A2B654C84005A6DE0 /* ProductsRouter.swift in Sources */,
+				0E764B7E2B6FFC9D001924CF /* Coordinator.swift in Sources */,
 				0E764B752B6FDA52001924CF /* AccountPresenter.swift in Sources */,
 				0EA2DF6D2B6654D900D4E725 /* ProductDetailsModel.swift in Sources */,
+				0E764B882B700D45001924CF /* TabBarController.swift in Sources */,
 				0EA2DF712B665DCD00D4E725 /* ProductDetailsInteractor.swift in Sources */,
+				0E764B842B700B43001924CF /* FavoriteCoordinator.swift in Sources */,
 				0EA2DF6F2B665DA800D4E725 /* ProductDetailsAssembly.swift in Sources */,
 				0EA2DF752B665DF200D4E725 /* ProductDetailsRouter.swift in Sources */,
 				0EA2DF782B668F1900D4E725 /* ProductsCell.swift in Sources */,
 				0EC238762B654C68005A6DE0 /* ProductsPresenter.swift in Sources */,
+				0E764B862B700BB3001924CF /* AccountCoordinator.swift in Sources */,
 				0E764B672B6FD9B8001924CF /* FavoriteAssembly.swift in Sources */,
 				0EC238652B653711005A6DE0 /* ProductDetailsView.swift in Sources */,
 				0E764B6F2B6FDA19001924CF /* FavoriteView.swift in Sources */,

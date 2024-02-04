@@ -20,7 +20,7 @@ final class ProductsView: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100) // Укажите размер ячейки
+        layout.itemSize = CGSize(width: 100, height: 100)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemYellow
         collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
