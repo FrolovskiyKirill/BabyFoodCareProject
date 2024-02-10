@@ -18,8 +18,11 @@ class ProductsCoordinator: Coordinator {
         print("AppCoordinator finish")
     }
     
-    func showDetails() {
-        let productsCoordinator = ProductDetailsCoordinator(type: .productDetails, navigationController: navigationController ?? UINavigationController())
-        productsCoordinator.start()
+    func showDetails(for productId: Int) {
+        let productDetailsCoordinator = ProductDetailsCoordinator(type: .productDetails, navigationController: navigationController ?? UINavigationController())
+        print(String(productId) + "!!SD!!")
+        // Здесь вы можете передать productId в productDetailsCoordinator если это необходимо
+        productDetailsCoordinator.productId = productId
+        productDetailsCoordinator.start()
     }
 }

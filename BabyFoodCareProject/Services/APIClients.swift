@@ -12,7 +12,7 @@ protocol ProductsProtocol {
 }
 
 protocol ProductDetailsProtocol {
-    func getProductDetails(poductID: Int) async throws -> ProductDetailsModel
+    func getProductDetails(productID: Int) async throws -> ProductDetailsModel
 }
 
 final class APIClient: ProductsProtocol {
@@ -23,8 +23,8 @@ final class APIClient: ProductsProtocol {
 }
 
 extension APIClient: ProductDetailsProtocol {
-    func getProductDetails(poductID: Int) async throws -> ProductDetailsModel {
-        let productDetails: ProductDetailsModel = try await APIRequestDispatcher.request(apiRouter: .getProductDetails(poductID: poductID))
+    func getProductDetails(productID: Int) async throws -> ProductDetailsModel {
+        let productDetails: ProductDetailsModel = try await APIRequestDispatcher.request(apiRouter: .getProductDetails(poductID: productID))
         return productDetails
     }
 }

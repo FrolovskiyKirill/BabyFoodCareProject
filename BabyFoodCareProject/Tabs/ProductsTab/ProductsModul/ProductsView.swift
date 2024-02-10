@@ -12,6 +12,7 @@ protocol ProductsViewInput: AnyObject { }
 protocol ProductsViewOutput: AnyObject {
     func viewDidLoad()
     func updateProducts(with products: [ProductsModel])
+    func didSelectProduct(with id: Int)
 }
 
 final class ProductsView: UIViewController {
@@ -33,6 +34,8 @@ final class ProductsView: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         presenter?.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
@@ -52,11 +55,25 @@ extension ProductsView: UICollectionViewDataSource {
 }
 
 extension ProductsView: ProductsViewOutput {
+    func didSelectProduct(with id: Int) {
+        printContent("Open smth")
+    }
+    
     func updateProducts(with products: [ProductsModel]) {
         self.products = products
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+}
+
+extension ProductsView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected cell at index: \(indexPath.item)")
+        let productId = products[indexPath.row].id
+        presenter?.didSelectProduct(with: productId)
+        print("!!!!!\(productId)")
     }
 }
 

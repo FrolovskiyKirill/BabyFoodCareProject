@@ -8,16 +8,16 @@
 import UIKit
 
 final class ProductDetailsAssembly {
-    static func makeModule() -> UIViewController {
+    static func makeModule(coordinator: ProductDetailsCoordinator, productId: Int) -> UIViewController {
         let APIClient = APIClient()
-        let router = ProductDetailsRouter()
-        let interactor = ProductDetailsInteractor(APIClient: APIClient)
-        let presenter = ProductDetailsPresenter(interactor: interactor, router: router)
+        let interactor = ProductDetailsInteractor(APIClient: APIClient, productId: productId)
+        let presenter = ProductDetailsPresenter(interactor: interactor, coordinator: coordinator, productId: productId)
         let view = ProductDetailsView()
-        router.presenter = presenter
         interactor.presenter = presenter
-        presenter.view = view
         view.presenter = presenter
+        presenter.view = view
+        print("?????\(productId)")
         return view
     }
 }
+

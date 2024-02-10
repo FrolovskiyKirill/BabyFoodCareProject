@@ -17,18 +17,20 @@ protocol ProductDetailsPresenterOutput: AnyObject {
 final class ProductDetailsPresenter {
     weak var view: ProductDetailsViewOutput?
     var interactor: ProductDetailsInteractorInput
-    var router: IProductDetailsRouter
+    var coordinator: ProductDetailsCoordinator
+    let productId: Int
     
-    init(interactor: ProductDetailsInteractorInput, router: IProductDetailsRouter) {
+    init(interactor: ProductDetailsInteractorInput, coordinator: ProductDetailsCoordinator, productId: Int) {
         self.interactor = interactor
-        self.router = router
+        self.coordinator = coordinator
+        self.productId = productId
     }
 }
 
 extension ProductDetailsPresenter: ProductDetailsPresenterInput {
     func viewDidLoad() {
         interactor.getData()
-        print("!!!!!HELLLOO")
+        print("Product ID: \(productId)")
     }
 }
 

@@ -8,8 +8,17 @@
 import Foundation
 
 class ProductDetailsCoordinator: Coordinator {
+    
+    var productId: Int?
+    
     override func start() {
-        let productDetailsView = ProductDetailsAssembly.makeModule()
+        
+        guard let productId = productId else {
+            print("Product ID is not set")
+            return
+        }
+        
+        let productDetailsView = ProductDetailsAssembly.makeModule(coordinator: self, productId: productId)
         navigationController?.pushViewController(productDetailsView, animated: true)
     }
     

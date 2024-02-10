@@ -10,6 +10,7 @@ import Foundation
 protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
+    func didSelectProduct(with id: Int)
 }
 
 protocol ProductsPresenterOutput: AnyObject {
@@ -37,9 +38,13 @@ extension ProductsPresenter: ProductsPresenterInput {
     func obtainedData(products: [ProductsModel]) {
         self.products = products
         view?.updateProducts(with: products)
+        print(products.first?.id)
     }
 }
 
 extension ProductsPresenter: ProductsPresenterOutput {
-    
+    func didSelectProduct(with id: Int) {
+        coordinator.showDetails(for: id)
+        print("____\(id)")
+    }
 }

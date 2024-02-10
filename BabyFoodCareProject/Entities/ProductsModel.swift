@@ -26,3 +26,8 @@ struct ProductsModel: Codable {
     let fats: Int
     let carbs: Int
 }
+
+enum CodingKeys: String, CodingKey {
+    case productID = "id"
+}
+

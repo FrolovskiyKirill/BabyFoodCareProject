@@ -17,12 +17,13 @@ protocol ProductDetailsInteractorOutput {
 final class ProductDetailsInteractor: ProductDetailsInteractorInput {
     weak var presenter: ProductDetailsPresenterInput?
     let APIClient: ProductDetailsProtocol
+    let productId: Int
     
-    let poductID: Int = 8
     var productDetails: ProductDetailsModel?
     
-    init(APIClient: APIClient) {
+    init(APIClient: APIClient, productId: Int) {
         self.APIClient = APIClient
+        self.productId = productId
     }
 }
 
@@ -30,7 +31,7 @@ extension ProductDetailsInteractor: ProductDetailsInteractorOutput {
     func getData() {
         Task.init {
             do {
-                self.productDetails = try await APIClient.getProductDetails(poductID: poductID)
+                self.productDetails = try await APIClient.getProductDetails(productID: productId)
                 guard let productDetails = productDetails else { return }
                 print(productDetails.title) // Убрать
             } catch {
