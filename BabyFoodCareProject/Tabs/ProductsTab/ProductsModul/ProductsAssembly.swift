@@ -7,14 +7,12 @@
 
 import UIKit
 
-final class ProductsAssembly {
-    static func makeModule() -> UIViewController {
+class ProductsAssembly {
+    static func makeModule(coordinator: ProductsCoordinator) -> UIViewController {
         let APIClient = APIClient()
-        let router = ProductsRouter()
         let interactor = ProductsInteractor(APIClient: APIClient)
-        let presenter = ProductsPresenter(interactor: interactor, router: router)
+        let presenter = ProductsPresenter(interactor: interactor, coordinator: coordinator)
         let view = ProductsView()
-        router.presenter = presenter
         interactor.presenter = presenter
         presenter.view = view
         view.presenter = presenter

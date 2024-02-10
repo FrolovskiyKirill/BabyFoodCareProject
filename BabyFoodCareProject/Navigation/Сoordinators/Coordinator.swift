@@ -8,10 +8,11 @@
 import UIKit
 
 enum CoordinatorType {
-    case app
     case products
+    case productDetails
     case favorite
     case account
+    case undefinded
 }
 
 protocol CoordinatorProtocol: AnyObject {
@@ -46,6 +47,11 @@ class Coordinator: CoordinatorProtocol {
     var type: CoordinatorType
     var navigationController: UINavigationController?
     var finishDelegate: CoordinatorFinishDelegate?
+    
+    init() {
+        childCoordinators = []
+        type = .undefinded
+    }
     
     init(childCoordinators: [CoordinatorProtocol] = [CoordinatorProtocol](), type: CoordinatorType, navigationController: UINavigationController, finishDelegate: CoordinatorFinishDelegate? = nil) {
         self.childCoordinators = childCoordinators

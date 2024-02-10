@@ -10,11 +10,16 @@ import UIKit
 class ProductsCoordinator: Coordinator {
     
     override func start() {
-        let productsView = ProductsAssembly.makeModule()
+        let productsView = ProductsAssembly.makeModule(coordinator: self)
         navigationController?.pushViewController(productsView, animated: true)
     }
     
     override func finish() {
         print("AppCoordinator finish")
+    }
+    
+    func showDetails() {
+        let productsCoordinator = ProductDetailsCoordinator(type: .productDetails, navigationController: navigationController ?? UINavigationController())
+        productsCoordinator.start()
     }
 }

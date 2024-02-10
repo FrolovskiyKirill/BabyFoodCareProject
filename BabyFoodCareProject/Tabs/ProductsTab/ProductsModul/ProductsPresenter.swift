@@ -14,19 +14,18 @@ protocol ProductsPresenterInput: AnyObject {
 
 protocol ProductsPresenterOutput: AnyObject {
 
-
 }
 
 final class ProductsPresenter {
     weak var view: ProductsViewOutput?
     var interactor: ProductsInteractorInput
-    var router: IProductsRouter
+    var coordinator: ProductsCoordinator
     
     var products: [ProductsModel]?
     
-    init(interactor: ProductsInteractorInput, router: IProductsRouter) {
+    init(interactor: ProductsInteractorInput, coordinator: ProductsCoordinator) {
         self.interactor = interactor
-        self.router = router
+        self.coordinator = coordinator
     }
 }
 
@@ -43,5 +42,4 @@ extension ProductsPresenter: ProductsPresenterInput {
 
 extension ProductsPresenter: ProductsPresenterOutput {
     
-
 }

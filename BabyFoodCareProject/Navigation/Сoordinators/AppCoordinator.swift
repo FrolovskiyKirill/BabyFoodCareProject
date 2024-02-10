@@ -15,11 +15,19 @@ class AppCoordinator: Coordinator {
     override func finish() {
         print("AppCoordinator finish")
     }
+    
+    private var window: UIWindow
+    
+    init(window: UIWindow) {
+        self.window = window
+        super.init()
+        type = .products
+    }
 }
 
 private extension AppCoordinator {
     func showMainFlow() {
-        guard let navigationController = navigationController else { return }
+//        guard let navigationController = navigationController else { return }
         
         let productsNavigationController = UINavigationController()
         let productsCoordinator = ProductsCoordinator(type: .products, navigationController: productsNavigationController)
@@ -28,13 +36,13 @@ private extension AppCoordinator {
         productsCoordinator.start()
         
         let favoriteNavigationController = UINavigationController()
-        let favoriteCoordinator = FavoriteCoordinator(type: .products, navigationController: favoriteNavigationController)
+        let favoriteCoordinator = FavoriteCoordinator(type: .favorite, navigationController: favoriteNavigationController)
         favoriteNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
         favoriteCoordinator.finishDelegate = self
         favoriteCoordinator.start()
         
         let accountNavigationController = UINavigationController()
-        let accountCoordinator = AccountCoordinator(type: .products, navigationController: accountNavigationController)
+        let accountCoordinator = AccountCoordinator(type: .account, navigationController: accountNavigationController)
         accountNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
         accountCoordinator.finishDelegate = self
         accountCoordinator.start()
@@ -45,8 +53,9 @@ private extension AppCoordinator {
         
         let tabBarControllers = [productsNavigationController, favoriteNavigationController, accountNavigationController]
         let tabBarController = TabBarController(tabBarControllers: tabBarControllers)
-        
-        navigationController.pushViewController(tabBarController, animated: true)
+
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
     }
 }
 
@@ -55,7 +64,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         removeChildCoordinator(childCoordinator)
         
         switch childCoordinator.type {
-        case .app:
+        case .products:
             return
         default:
             navigationController?.popToRootViewController(animated: false)
