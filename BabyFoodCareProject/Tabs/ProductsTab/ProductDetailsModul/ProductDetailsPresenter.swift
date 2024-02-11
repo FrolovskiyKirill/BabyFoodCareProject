@@ -25,14 +25,13 @@ final class ProductDetailsPresenter {
         self.coordinator = coordinator
         self.productId = productId
     }
-}
-
-extension ProductDetailsPresenter: ProductDetailsPresenterInput {
+    
     func viewDidLoad() {
+        interactor.getProductDetails(with: productId)
         interactor.getData()
-        print("Product ID: \(productId)")
     }
 }
 
-extension ProductDetailsPresenter: ProductDetailsPresenterOutput {
-}
+extension ProductDetailsPresenter: ProductDetailsPresenterInput { }
+
+extension ProductDetailsPresenter: ProductDetailsPresenterOutput { }

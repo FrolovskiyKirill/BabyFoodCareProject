@@ -10,9 +10,7 @@ import Foundation
 protocol ProductsInteractorInput {
     func getData()
 }
-protocol ProductsInteractorOutput {
-    
-}
+protocol ProductsInteractorOutput { }
 
 final class ProductsInteractor: ProductsInteractorInput {
     weak var presenter: ProductsPresenterInput?
@@ -37,6 +35,4 @@ final class ProductsInteractor: ProductsInteractorInput {
     }
 }
 
-extension ProductsInteractor: ProductsInteractorOutput {
-
-}
+extension ProductsInteractor: ProductsInteractorOutput { }

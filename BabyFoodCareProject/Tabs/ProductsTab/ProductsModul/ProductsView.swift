@@ -70,10 +70,8 @@ extension ProductsView: ProductsViewOutput {
 
 extension ProductsView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected cell at index: \(indexPath.item)")
         let productId = products[indexPath.row].id
         presenter?.didSelectProduct(with: productId)
-        print("!!!!!\(productId)")
     }
 }
 
@@ -98,6 +96,6 @@ final class ProductsCell: UICollectionViewCell {
     }
     
     func configure(with products: ProductsModel) {
-        nameLabel.text = products.foodType
+        nameLabel.text = products.title
     }
 }

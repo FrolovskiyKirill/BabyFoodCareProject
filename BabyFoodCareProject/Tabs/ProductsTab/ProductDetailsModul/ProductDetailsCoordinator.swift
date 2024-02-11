@@ -12,7 +12,6 @@ class ProductDetailsCoordinator: Coordinator {
     var productId: Int?
     
     override func start() {
-        
         guard let productId = productId else {
             print("Product ID is not set")
             return

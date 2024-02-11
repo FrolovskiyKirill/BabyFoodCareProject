@@ -10,12 +10,10 @@ import Foundation
 protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
-    func didSelectProduct(with id: Int)
+    func didSelectProduct(with productId: Int)
 }
 
-protocol ProductsPresenterOutput: AnyObject {
-
-}
+protocol ProductsPresenterOutput: AnyObject { }
 
 final class ProductsPresenter {
     weak var view: ProductsViewOutput?
@@ -38,13 +36,11 @@ extension ProductsPresenter: ProductsPresenterInput {
     func obtainedData(products: [ProductsModel]) {
         self.products = products
         view?.updateProducts(with: products)
-        print(products.first?.id)
     }
 }
 
 extension ProductsPresenter: ProductsPresenterOutput {
-    func didSelectProduct(with id: Int) {
-        coordinator.showDetails(for: id)
-        print("____\(id)")
+    func didSelectProduct(with productId: Int) {
+        coordinator.showDetails(for: productId)
     }
 }

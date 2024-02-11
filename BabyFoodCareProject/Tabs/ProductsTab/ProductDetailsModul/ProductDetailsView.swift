@@ -24,10 +24,6 @@ final class ProductDetailsView: UIViewController {
     }
 }
 
-extension ProductDetailsView: ProductDetailsViewInput {
-    
-}
+extension ProductDetailsView: ProductDetailsViewInput { }
 
-extension ProductDetailsView: ProductDetailsViewOutput {
-    
-}
+extension ProductDetailsView: ProductDetailsViewOutput { }
