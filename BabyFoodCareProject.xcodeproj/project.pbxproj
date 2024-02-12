@@ -353,8 +353,8 @@
 				0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */,
 				0EA2DF702B665DCD00D4E725 /* ProductDetailsInteractor.swift */,
 				0EA2DF722B665DDD00D4E725 /* ProductDetailsPresenter.swift */,
-				0EC238642B653710005A6DE0 /* ProductDetailsView.swift */,
 				0E764B892B715CAF001924CF /* ProductDetailsCoordinator.swift */,
+				0EC238642B653710005A6DE0 /* ProductDetailsView.swift */,
 			);
 			path = ProductDetailsModul;
 			sourceTree = "<group>";

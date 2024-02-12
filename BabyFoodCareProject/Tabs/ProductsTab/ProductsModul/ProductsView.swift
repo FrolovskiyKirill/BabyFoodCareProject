@@ -19,13 +19,19 @@ final class ProductsView: UIViewController {
     var presenter: ProductsPresenterInput?
     var products: [ProductsModel] = []
     
+    let layout = UICollectionViewFlowLayout()
+    
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
+        
+        layout.minimumInteritemSpacing = 16
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemYellow
         collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
         collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -36,6 +42,16 @@ final class ProductsView: UIViewController {
         presenter?.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let availableWidth = collectionView.bounds.width - (layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing)
+        let cellWidth = availableWidth / 2
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        }
     }
 }
 
@@ -89,6 +105,7 @@ final class ProductsCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(nameLabel)
         nameLabel.frame = contentView.bounds
+        contentView.backgroundColor = .purple
     }
     
     required init?(coder: NSCoder) {
