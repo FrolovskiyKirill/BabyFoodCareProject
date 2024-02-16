@@ -81,7 +81,6 @@ extension ProductsView: ProductsViewOutput {
             self.collectionView.reloadData()
         }
     }
-    
 }
 
 extension ProductsView: UICollectionViewDelegate {

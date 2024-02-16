@@ -18,7 +18,6 @@ class ProductsCoordinator: Coordinator {
         print("AppCoordinator finish")
     }
     
-    // Передавать ID через протокол??
     func showDetails(for productId: Int) {
         let productDetailsCoordinator = ProductDetailsCoordinator(type: .productDetails, navigationController: navigationController ?? UINavigationController())
         productDetailsCoordinator.productId = productId

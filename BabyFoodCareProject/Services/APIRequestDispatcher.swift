@@ -36,8 +36,6 @@ final class APIRequestDispatcher {
                 }
 
                 do {
-//                    print(urlRequest.url?.absoluteString)
-//                    print(String(data: data, encoding: .utf8))
                     let responseObject = try JSONDecoder().decode(T.self, from: data)
                     DispatchQueue.main.async {
                         return continuation.resume(with: .success(responseObject))

@@ -23,12 +23,18 @@ class AppCoordinator: Coordinator {
         super.init()
         type = .products
     }
+    
+    // TODO: Безопасное обращение по индексу
+    func didSelectTad(with index: Int) {
+        let productIndex = childCoordinators.firstIndex { $0 is ProductsCoordinator }
+        if productIndex == index {
+          childCoordinators[index].navigationController?.popToRootViewController(animated: false)
+        }
+    }
 }
 
 private extension AppCoordinator {
     func showMainFlow() {
-//        guard let navigationController = navigationController else { return }
-        
         let productsNavigationController = UINavigationController()
         let productsCoordinator = ProductsCoordinator(type: .products, navigationController: productsNavigationController)
         productsNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
@@ -52,7 +58,7 @@ private extension AppCoordinator {
         addChildCoordinator(accountCoordinator)
         
         let tabBarControllers = [productsNavigationController, favoriteNavigationController, accountNavigationController]
-        let tabBarController = TabBarController(tabBarControllers: tabBarControllers)
+        let tabBarController = TabBarController(tabBarControllers: tabBarControllers, appCoordinator: self)
 
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
