@@ -23,12 +23,12 @@ class AppCoordinator: Coordinator {
         super.init()
         type = .products
     }
-    
-    // TODO: Безопасное обращение по индексу
+
     func didSelectTad(with index: Int) {
-        let productIndex = childCoordinators.firstIndex { $0 is ProductsCoordinator }
-        if productIndex == index {
-          childCoordinators[index].navigationController?.popToRootViewController(animated: false)
+        guard index >= 0 && index < childCoordinators.count else { return }
+        if let productIndex = childCoordinators.firstIndex(where: { $0 is ProductsCoordinator }),
+           productIndex == index {
+            childCoordinators[index].navigationController?.popToRootViewController(animated: false)
         }
     }
 }
