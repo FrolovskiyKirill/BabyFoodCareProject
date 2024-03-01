@@ -8,9 +8,10 @@
 import UIKit
 
 class ProductsAssembly {
+    
     static func makeModule(coordinator: ProductsCoordinator) -> UIViewController {
-        let APIClient = APIClient()
-        let interactor = ProductsInteractor(APIClient: APIClient)
+        let service = Injections.shared.apiClient
+        let interactor = ProductsInteractor(APIClient: service)
         let presenter = ProductsPresenter(interactor: interactor, coordinator: coordinator)
         let view = ProductsView()
         interactor.presenter = presenter

@@ -5,6 +5,7 @@
 //  Created by Kirill Frolovskiy on 27.01.2024.
 //
 
+import Swinject
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

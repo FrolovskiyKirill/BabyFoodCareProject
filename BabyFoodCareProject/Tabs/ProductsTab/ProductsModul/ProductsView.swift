@@ -62,7 +62,7 @@ extension ProductsView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCell.identifier, for: indexPath) as? ProductsCell else {
-            fatalError("Unable to dequeue AuthorityCell")
+            fatalError("Unable to dequeue ProductCell")
         }
         let products = products[indexPath.item]
         cell.configure(with: products)
