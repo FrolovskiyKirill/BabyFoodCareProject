@@ -16,13 +16,13 @@ protocol ProductsInteractorOutput { }
 final class ProductsInteractor: ProductsInteractorInput {
     weak var presenter: ProductsPresenterInput?
     let APIClient: ProductsProtocol
-    let APIImageClient: APIImageClient
+    let apiImageClient: ImageProtocol
     
     var products: [ProductsModel]?
     
-    init(APIClient: APIClient, APIImageClient: APIImageClient ) {
+    init(APIClient: APIClient, apiImageClient: APIImageClient ) {
         self.APIClient = APIClient
-        self.APIImageClient = APIImageClient
+        self.apiImageClient = apiImageClient
     }
     
     func getData() {
@@ -40,7 +40,7 @@ final class ProductsInteractor: ProductsInteractorInput {
     func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
         Task {
             do {
-                let imageData = try await APIImageClient.fetchImage(urlString: urlString)
+                let imageData = try await apiImageClient.fetchImage(urlString: urlString)
                 completion(.success(imageData))
             } catch {
                 completion(.failure(error))

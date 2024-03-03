@@ -16,13 +16,9 @@ final class Injections {
     
     init() {
         container.register(APIClient.self) { _ in APIClient() }
+        container.register(APIImageClient.self) { _ in APIImageClient() }
     }
     
-    var apiClient: APIClient {
-        container.resolve(APIClient.self) ?? APIClient()
-    }
-    
-    var apiImageClient: APIImageClient {
-        container.resolve(APIImageClient.self) ?? APIImageClient()
-    }
+    var apiClient: APIClient { container.resolve(APIClient.self) ?? APIClient() }
+    var apiImageClient: APIImageClient { container.resolve(APIImageClient.self) ?? APIImageClient() }
 }

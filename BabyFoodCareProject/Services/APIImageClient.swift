@@ -7,11 +7,11 @@
 
 import Foundation
 
-//protocol ImageProtocol {
-//    func fetchImage(urlString: String) async throws -> Data
-//}
+protocol ImageProtocol {
+    func fetchImage(urlString: String) async throws -> Data
+}
 
-final class APIImageClient {
+final class APIImageClient: ImageProtocol {
     private let session: URLSession
     
     init() {
