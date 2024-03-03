@@ -9,17 +9,20 @@ import Foundation
 
 protocol ProductsInteractorInput {
     func getData()
+    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void)
 }
 protocol ProductsInteractorOutput { }
 
 final class ProductsInteractor: ProductsInteractorInput {
     weak var presenter: ProductsPresenterInput?
     let APIClient: ProductsProtocol
+    let APIImageClient: APIImageClient
     
     var products: [ProductsModel]?
     
-    init(APIClient: APIClient) {
+    init(APIClient: APIClient, APIImageClient: APIImageClient ) {
         self.APIClient = APIClient
+        self.APIImageClient = APIImageClient
     }
     
     func getData() {
@@ -30,6 +33,17 @@ final class ProductsInteractor: ProductsInteractorInput {
                 self.presenter?.obtainedData(products: products)
             } catch {
                 print("Fetching establishments failed with error \(error)")
+            }
+        }
+    }
+    
+    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        Task {
+            do {
+                let imageData = try await APIImageClient.fetchImage(urlString: urlString)
+                completion(.success(imageData))
+            } catch {
+                completion(.failure(error))
             }
         }
     }

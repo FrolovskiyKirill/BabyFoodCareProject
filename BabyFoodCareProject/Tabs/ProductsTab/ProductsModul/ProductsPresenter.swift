@@ -11,6 +11,7 @@ protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
+    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 protocol ProductsPresenterOutput: AnyObject { }
@@ -36,6 +37,10 @@ extension ProductsPresenter: ProductsPresenterInput {
     func obtainedData(products: [ProductsModel]) {
         self.products = products
         view?.updateProducts(with: products)
+    }
+    
+    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        interactor.fetchImageData(urlString: urlString, completion: completion)
     }
 }
 

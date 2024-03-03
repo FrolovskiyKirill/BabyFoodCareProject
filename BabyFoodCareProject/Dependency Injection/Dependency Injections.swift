@@ -21,4 +21,8 @@ final class Injections {
     var apiClient: APIClient {
         container.resolve(APIClient.self) ?? APIClient()
     }
+    
+    var apiImageClient: APIImageClient {
+        container.resolve(APIImageClient.self) ?? APIImageClient()
+    }
 }
