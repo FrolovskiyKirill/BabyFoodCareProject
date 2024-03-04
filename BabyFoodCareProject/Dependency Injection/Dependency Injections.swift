@@ -11,8 +11,7 @@ import Swinject
 final class Injections {
     
     static let shared = Injections()
-    
-    private let container = Container()
+    var container = Container()
     
     init() {
         container.register(APIClient.self) { _ in APIClient() }
@@ -21,4 +20,12 @@ final class Injections {
     
     var apiClient: APIClient { container.resolve(APIClient.self) ?? APIClient() }
     var apiImageClient: APIImageClient { container.resolve(APIImageClient.self) ?? APIImageClient() }
+}
+
+@propertyWrapper struct Injected<Dependency> {
+  let wrappedValue: Dependency
+ 
+  init() {
+    self.wrappedValue = Injections.shared.container.resolve(Dependency.self)!
+  }
 }
