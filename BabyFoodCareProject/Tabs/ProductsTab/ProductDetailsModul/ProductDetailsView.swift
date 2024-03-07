@@ -27,3 +27,8 @@ final class ProductDetailsView: UIViewController {
 extension ProductDetailsView: ProductDetailsViewInput { }
 
 extension ProductDetailsView: ProductDetailsViewOutput { }
+
+#Preview {
+    let viewController = ProductDetailsView()
+    return viewController
+}

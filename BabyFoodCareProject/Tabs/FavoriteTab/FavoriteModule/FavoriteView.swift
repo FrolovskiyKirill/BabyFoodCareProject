@@ -19,7 +19,7 @@ final class FavoriteView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         presenter?.viewDidLoad()
     }
 }

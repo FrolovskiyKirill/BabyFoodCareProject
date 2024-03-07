@@ -23,9 +23,8 @@ final class ProductsView: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         
-        layout.minimumInteritemSpacing = 16
-        layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 10 // Потом убрать
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemYellow
@@ -48,9 +47,9 @@ final class ProductsView: UIViewController {
         super.viewDidLayoutSubviews()
 
         let availableWidth = collectionView.bounds.width - (layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing)
-        let cellWidth = availableWidth / 2
+        let cellWidth = availableWidth
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+            layout.itemSize = CGSize(width: cellWidth, height: 160)
         }
     }
 }
@@ -137,11 +136,11 @@ final class ProductsCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -20),
-            imageView.widthAnchor.constraint(equalToConstant: 120),
-            imageView.heightAnchor.constraint(equalToConstant: 120),
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            imageView.widthAnchor.constraint(equalToConstant: 177),
+            imageView.heightAnchor.constraint(equalToConstant: 128),
             
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
@@ -154,5 +153,4 @@ final class ProductsCell: UICollectionViewCell {
     func configure(with product: ProductsModel) {
         nameLabel.text = product.title
     }
-
 }

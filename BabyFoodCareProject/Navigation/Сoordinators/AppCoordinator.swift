@@ -37,19 +37,19 @@ private extension AppCoordinator {
     func showMainFlow() {
         let productsNavigationController = UINavigationController()
         let productsCoordinator = ProductsCoordinator(type: .products, navigationController: productsNavigationController)
-        productsNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
+        productsNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.init(systemName: "square.grid.2x2"), tag: 0)
         productsCoordinator.finishDelegate = self
         productsCoordinator.start()
         
         let favoriteNavigationController = UINavigationController()
         let favoriteCoordinator = FavoriteCoordinator(type: .favorite, navigationController: favoriteNavigationController)
-        favoriteNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
+        favoriteNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.init(systemName: "heart"), tag: 0)
         favoriteCoordinator.finishDelegate = self
         favoriteCoordinator.start()
         
         let accountNavigationController = UINavigationController()
         let accountCoordinator = AccountCoordinator(type: .account, navigationController: accountNavigationController)
-        accountNavigationController.tabBarItem = UITabBarItem(title: "Products", image: UIImage.init(systemName: "swirl.circle.righthalf.filled"), tag: 0)
+        accountNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.init(systemName: "person"), tag: 0)
         accountCoordinator.finishDelegate = self
         accountCoordinator.start()
         

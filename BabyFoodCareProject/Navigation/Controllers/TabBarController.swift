@@ -31,6 +31,6 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.backgroundColor = .clear
-        tabBar.tintColor = .cyan
+        tabBar.tintColor = .black
     }
 }
