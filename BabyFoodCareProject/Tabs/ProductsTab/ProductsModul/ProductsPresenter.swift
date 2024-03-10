@@ -5,13 +5,13 @@
 //  Created by Kirill Frolovskiy on 27.01.2024.
 //
 
-import Foundation
+import UIKit
 
 protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
-    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchProductImage(for product: ProductsModel, cell: ProductsCell)
 }
 
 protocol ProductsPresenterOutput: AnyObject { }
@@ -39,8 +39,19 @@ extension ProductsPresenter: ProductsPresenterInput {
         view?.updateProducts(with: products)
     }
     
-    func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        interactor.fetchImageData(urlString: urlString, completion: completion)
+    func fetchProductImage(for product: ProductsModel, cell: ProductsCell) {
+        interactor.fetchImageData(urlString: product.imageURL) { result in
+            switch result {
+            case .success(let data):
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    cell.updateImage(image)
+                }
+            case .failure(let error):
+                print("Ошибка загрузки изображения: \(error)")
+                // Обработка ошибки, возможно установка изображения по умолчанию
+            }
+        }
     }
 }
 

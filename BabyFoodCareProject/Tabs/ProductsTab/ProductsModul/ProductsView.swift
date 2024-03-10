@@ -64,18 +64,7 @@ extension ProductsView: UICollectionViewDataSource {
             fatalError("Unable to dequeue ProductCell")
         }
         let products = products[indexPath.item]
-        presenter?.fetchImageData(urlString: products.imageURL) { result in
-            switch result {
-            case .success(let data):
-                let image = UIImage(data: data)
-                DispatchQueue.main.async {
-                    cell.updateImage(image)
-                }
-            case .failure(let error):
-                print("Ошибка загрузки изображения: \(error)")
-                // Изображение по умолчанию?
-            }
-        }
+        presenter?.fetchProductImage(for: products, cell: cell)
         cell.configure(with: products)
         return cell
     }
