@@ -23,11 +23,11 @@ final class ProductsView: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 10 // Потом убрать
-
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 1
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemYellow
+        collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
         collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -39,8 +39,12 @@ final class ProductsView: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         presenter?.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        UIFont.systemFont(ofSize: 18, weight: .semibold)
+        navigationController?.navigationBar.prefersLargeTitles = true // Если вам нужен большой заголовок
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
+//        navigationController?.navigationBar.titleTextAttributes = attributes // Для обычного заголовка
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes // Для большого заголовка
+        title = "Baby Food Care" // Установите свой заголовок здесь
     }
     
     override func viewDidLayoutSubviews() {
@@ -97,21 +101,67 @@ final class ProductsCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-/*        imageView.image = UIImage(named: "pepper")*/ // Сделать изображение по умолчанию?
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
+        // imageView.image = UIImage(named: "pepper") // Раскомментируйте для изображения по умолчанию
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
+    private let foodTitle: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
+    private let ageFrom: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return label
+    }()
+    
+    private let dangerAttention: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = UIColor(red: 0.89, green: 0.45, blue: 0.45, alpha: 1.0)
+        return label
+    }()
+    
+    private let favoriteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.tintColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 8
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0).cgColor
+        return button
+    }()
+    
+    private let triedButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "fork.knife"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = UIColor(red: 0x0B/255, green: 0xCE/255, blue: 0x83/255, alpha: 1.0)
+        button.layer.cornerRadius = 8
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0).cgColor
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
-        contentView.addSubview(nameLabel)
-        contentView.backgroundColor = .purple
+        contentView.addSubview(foodTitle)
+        contentView.addSubview(ageFrom)
+        contentView.addSubview(dangerAttention)
+        contentView.addSubview(favoriteButton)
+        contentView.addSubview(triedButton)
+        contentView.backgroundColor = .white
         setupLayout()
     }
     
@@ -121,17 +171,42 @@ final class ProductsCell: UICollectionViewCell {
     
     private func setupLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        foodTitle.translatesAutoresizingMaskIntoConstraints = false
+        ageFrom.translatesAutoresizingMaskIntoConstraints = false
+        dangerAttention.translatesAutoresizingMaskIntoConstraints = false
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        triedButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             imageView.widthAnchor.constraint(equalToConstant: 177),
             imageView.heightAnchor.constraint(equalToConstant: 128),
             
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            foodTitle.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+            foodTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            foodTitle.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -20),
+            
+            ageFrom.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+            ageFrom.topAnchor.constraint(equalTo: foodTitle.bottomAnchor, constant: 10),
+            ageFrom.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -20),
+            
+            dangerAttention.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+            dangerAttention.topAnchor.constraint(equalTo: ageFrom.bottomAnchor, constant: 10),
+            dangerAttention.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -20),
+            
+            favoriteButton.topAnchor.constraint(equalTo: dangerAttention.bottomAnchor, constant: 10),
+            favoriteButton.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+            favoriteButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 36),
+            
+            triedButton.topAnchor.constraint(equalTo: dangerAttention.bottomAnchor, constant: 10),
+            triedButton.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor, constant: 20),
+            triedButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            triedButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            triedButton.heightAnchor.constraint(equalToConstant: 36),
+            triedButton.widthAnchor.constraint(equalTo: favoriteButton.widthAnchor)
         ])
     }
     
@@ -140,6 +215,9 @@ final class ProductsCell: UICollectionViewCell {
     }
     
     func configure(with product: ProductsModel) {
-        nameLabel.text = product.title
+        foodTitle.text = product.title
+        ageFrom.text = "From: \(product.monthFrom) month"
+        dangerAttention.text = "Attention: Allergen"
     }
 }
+
