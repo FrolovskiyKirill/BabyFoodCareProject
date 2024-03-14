@@ -43,7 +43,7 @@ private extension AppCoordinator {
         
         let favoriteNavigationController = UINavigationController()
         let favoriteCoordinator = FavoriteCoordinator(type: .favorite, navigationController: favoriteNavigationController)
-        favoriteNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.init(systemName: "heart"), tag: 0)
+        favoriteNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.init(systemName: "star"), tag: 0)
         favoriteCoordinator.finishDelegate = self
         favoriteCoordinator.start()
         

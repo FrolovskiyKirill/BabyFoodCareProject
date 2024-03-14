@@ -39,12 +39,11 @@ final class ProductsView: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         presenter?.viewDidLoad()
-//        UIFont.systemFont(ofSize: 18, weight: .semibold)
-        navigationController?.navigationBar.prefersLargeTitles = true // Если вам нужен большой заголовок
+        navigationController?.navigationBar.prefersLargeTitles = false // Если вам нужен большой заголовок
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
 //        navigationController?.navigationBar.titleTextAttributes = attributes // Для обычного заголовка
         navigationController?.navigationBar.largeTitleTextAttributes = attributes // Для большого заголовка
-        title = "Baby Food Care" // Установите свой заголовок здесь
+        title = "Baby Food Care"
     }
     
     override func viewDidLayoutSubviews() {
@@ -217,7 +216,7 @@ final class ProductsCell: UICollectionViewCell {
     func configure(with product: ProductsModel) {
         foodTitle.text = product.title
         ageFrom.text = "From: \(product.monthFrom) month"
-        dangerAttention.text = "Attention: Allergen"
+        dangerAttention.text = "Danger: Allergen"
     }
 }
 
