@@ -20,7 +20,7 @@ final class ProductsInteractor: ProductsInteractorInput {
     
     var products: [ProductsModel]?
     
-    init(APIClient: APIClient, apiImageClient: APIImageClient ) {
+    init(APIClient: ProductsProtocol, apiImageClient: APIImageClient ) {
         self.APIClient = APIClient
         self.apiImageClient = apiImageClient
     }

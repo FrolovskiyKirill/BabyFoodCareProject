@@ -7,11 +7,15 @@
 
 import Foundation
 
+protocol IAPIRequestDispatcher {
+    static func request<T: Codable>(apiRouter: APIRouter) async throws -> T
+}
+
 enum APIRequestError: Error {
     case badUrl, noData
 }
 
-final class APIRequestDispatcher {
+final class APIRequestDispatcher: IAPIRequestDispatcher {
     class func request<T: Codable>(apiRouter: APIRouter) async throws -> T {
         var components = URLComponents()
         components.host = apiRouter.host

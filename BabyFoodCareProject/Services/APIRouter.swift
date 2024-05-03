@@ -15,7 +15,7 @@ enum APIRouter {
     var host: String {
         switch self {
         case .getProducts, .getProductDetails:
-            return "davnopora.fun"
+            return "makarbass.ru"
         }
     }
     

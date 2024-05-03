@@ -39,7 +39,7 @@ final class ProductsView: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         presenter?.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false // Если вам нужен большой заголовок
+        navigationController?.navigationBar.prefersLargeTitles = true // Если вам нужен большой заголовок
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
 //        navigationController?.navigationBar.titleTextAttributes = attributes // Для обычного заголовка
         navigationController?.navigationBar.largeTitleTextAttributes = attributes // Для большого заголовка

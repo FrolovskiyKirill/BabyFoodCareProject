@@ -1,0 +1,20 @@
+[
+  {
+    "id": 8,
+    "description": "This is the description for my appetizer. It's yummy.",
+    "foodTypeImageURL": "https://seanallen-course-backend.herokuapp.com/images/appetizers/asian-flank-steak.jpg",
+    "allergen": false,
+    "withWarning": true,
+    "howToServe": "This is the description for my appetizer. It's yummy.",
+    "protein": 20,
+    "carbs": 30,
+    "foodType": "Vegetables",
+    "title": "Test Pepper",
+    "imageURL": "https://seanallen-course-backend.herokuapp.com/images/appetizers/asian-flank-steak.jpg",
+    "monthFrom": 6,
+    "allergenDescription": "This is the description about allergen.",
+    "warningNote": "jkj",
+    "calories": 300,
+    "fats": 5
+  }
+]
