@@ -32,6 +32,8 @@
 		0E764B882B700D45001924CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B872B700D45001924CF /* TabBarController.swift */; };
 		0E764B8A2B715CAF001924CF /* ProductDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E764B892B715CAF001924CF /* ProductDetailsCoordinator.swift */; };
 		0E8289F82B91BBBC004242C3 /* Dependency Injections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8289F72B91BBBC004242C3 /* Dependency Injections.swift */; };
+		0E9BCF582BF0A66B0071BF25 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BCF572BF0A66B0071BF25 /* ListItem.swift */; };
+		0E9BCF5A2BF0A67D0071BF25 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BCF592BF0A67D0071BF25 /* ListSection.swift */; };
 		0EA2DF6D2B6654D900D4E725 /* ProductDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF6C2B6654D900D4E725 /* ProductDetailsModel.swift */; };
 		0EA2DF6F2B665DA800D4E725 /* ProductDetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */; };
 		0EA2DF712B665DCD00D4E725 /* ProductDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2DF702B665DCD00D4E725 /* ProductDetailsInteractor.swift */; };
@@ -102,6 +104,8 @@
 		0E764B872B700D45001924CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0E764B892B715CAF001924CF /* ProductDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCoordinator.swift; sourceTree = "<group>"; };
 		0E8289F72B91BBBC004242C3 /* Dependency Injections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency Injections.swift"; sourceTree = "<group>"; };
+		0E9BCF572BF0A66B0071BF25 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		0E9BCF592BF0A67D0071BF25 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
 		0EA2DF6C2B6654D900D4E725 /* ProductDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsModel.swift; sourceTree = "<group>"; };
 		0EA2DF6E2B665DA800D4E725 /* ProductDetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsAssembly.swift; sourceTree = "<group>"; };
 		0EA2DF702B665DCD00D4E725 /* ProductDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -250,6 +254,20 @@
 			path = "Dependency Injection";
 			sourceTree = "<group>";
 		};
+		0E9BCF5B2BF0A8360071BF25 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0E9BCF5E2BF14EA70071BF25 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0EA2DF762B668EF300D4E725 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +306,7 @@
 				0E8289F92B91F044004242C3 /* Dependency Injection */,
 				0EC238682B654798005A6DE0 /* Services */,
 				0EC2386F2B6548AD005A6DE0 /* Entities */,
+				0E9BCF5E2BF14EA70071BF25 /* Cells */,
 				0EC238722B654BB7005A6DE0 /* Tabs */,
 				0EC238662B65435B005A6DE0 /* Resources */,
 			);
@@ -373,6 +392,9 @@
 				0EC238752B654C68005A6DE0 /* ProductsPresenter.swift */,
 				0E764B812B700A30001924CF /* ProductsCoordinator.swift */,
 				0EC238382B6534D3005A6DE0 /* ProductsView.swift */,
+				0E9BCF5B2BF0A8360071BF25 /* Cells */,
+				0E9BCF572BF0A66B0071BF25 /* ListItem.swift */,
+				0E9BCF592BF0A67D0071BF25 /* ListSection.swift */,
 				0EA2DF762B668EF300D4E725 /* CustomCell */,
 			);
 			path = ProductsModul;
@@ -657,6 +679,7 @@
 				0E764B772B6FDA5C001924CF /* AccountRouter.swift in Sources */,
 				0E8289F82B91BBBC004242C3 /* Dependency Injections.swift in Sources */,
 				0EC238782B654C77005A6DE0 /* ProductsInteractor.swift in Sources */,
+				0E9BCF5A2BF0A67D0071BF25 /* ListSection.swift in Sources */,
 				0EC238392B6534D3005A6DE0 /* ProductsView.swift in Sources */,
 				0EC2386C2B654839005A6DE0 /* APIRequestDispatcher.swift in Sources */,
 				0E764B792B6FDA66001924CF /* AccountView.swift in Sources */,
@@ -666,6 +689,7 @@
 				0E764B712B6FDA35001924CF /* AccountAssembly.swift in Sources */,
 				0EC2386E2B654880005A6DE0 /* APIClients.swift in Sources */,
 				0E433FB52B949E1000303C3C /* APIImageClient.swift in Sources */,
+				0E9BCF582BF0A66B0071BF25 /* ListItem.swift in Sources */,
 				0EC2386A2B6547F4005A6DE0 /* APIRouter.swift in Sources */,
 				0E764B6B2B6FD9EF001924CF /* FavoritePresenter.swift in Sources */,
 				0E764B802B70042E001924CF /* AppCoordinator.swift in Sources */,
@@ -867,6 +891,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WUPLHJKG9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BabyFoodCareProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -894,6 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WUPLHJKG9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BabyFoodCareProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

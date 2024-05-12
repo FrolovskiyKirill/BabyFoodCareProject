@@ -12,14 +12,22 @@ protocol ProductsViewInput: AnyObject { }
 protocol ProductsViewOutput: AnyObject {
     func viewDidLoad()
     func setupInitialState()
-    func reloadCollectionView()
     func didSelectProduct(with id: Int)
+    func applySnapshot(model: [ProductsModel], animatingDifferences: Bool)
 }
 
 final class ProductsView: UIViewController {
+    enum Section {
+      case main
+    }
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, ProductsModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, ProductsModel>
+    
     var presenter: ProductsPresenterInput?
     
-    private var collectionView: UICollectionView!
+    private lazy var dataSource = makeDataSource()
+    private lazy var collectionView: UICollectionView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +39,27 @@ final class ProductsView: UIViewController {
         setupInterface()
     }
     
-    func reloadCollectionView() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(
+            collectionView: collectionView,
+            cellProvider: { (collectionView, indexPath, model) -> UICollectionViewCell? in
+                if let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProductsCell.identifier,
+                    for: indexPath) as? ProductsCell {
+                    cell.model = model
+                    self.presenter?.fetchProductImage(for: model, cell: cell)
+                    return cell
+                }
+                return nil
+            })
+        return dataSource
+    }
+    
+    func applySnapshot(model: [ProductsModel], animatingDifferences: Bool) {
+      var snapshot = Snapshot()
+      snapshot.appendSections([.main])
+      snapshot.appendItems(model)
+      dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
@@ -56,16 +81,14 @@ private extension ProductsView {
     }
     
     func setupCollectionView() {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        let layout = createLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
         collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
-        collectionView.dataSource = presenter as? any UICollectionViewDataSource
-        collectionView.delegate = presenter as? any UICollectionViewDelegate
-        self.collectionView = collectionView
+        collectionView.delegate = self
     }
     
     func setupInterface() {
-        view.backgroundColor = .red
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -75,18 +98,19 @@ private extension ProductsView {
     }
 }
 
-extension ProductsView: ProductsViewOutput {
-    func didSelectProduct(with id: Int) {
-        printContent("Open smth")
-    }
-    
-    func updateProducts(with products: [ProductsModel]) {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+extension ProductsView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = dataSource.itemIdentifier(for: indexPath)?.id else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            return
         }
+        presenter?.didSelectProduct(with: id)
     }
 }
 
+extension ProductsView: ProductsViewOutput {
+    func didSelectProduct(with id: Int) { }
+}
 
 // Вынести в отдельный файл
 final class ProductsCell: UICollectionViewCell {
@@ -97,7 +121,6 @@ final class ProductsCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
-        // imageView.image = UIImage(named: "pepper") // Раскомментируйте для изображения по умолчанию
         return imageView
     }()
     
@@ -206,10 +229,11 @@ final class ProductsCell: UICollectionViewCell {
         imageView.image = image
     }
     
-    func configure(with product: ProductsModel) {
-        foodTitle.text = product.title
-        ageFrom.text = "From: \(product.monthFrom) month"
-        dangerAttention.text = "Danger: Allergen"
+    var model: ProductsModel? {
+      didSet {
+          foodTitle.text = model?.title
+          ageFrom.text = "From: \(String(describing: model?.monthFrom)) month"
+          dangerAttention.text = "Danger: Allergen"
+      }
     }
 }
-

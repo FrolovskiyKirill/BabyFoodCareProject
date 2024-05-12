@@ -31,4 +31,12 @@ enum CodingKeys: String, CodingKey {
     case productID = "id"
 }
 
-extension ProductsModel: Hashable { }
+extension ProductsModel: Hashable { 
+//    func hash(into hasher: inout Hasher) {
+//      hasher.combine(id)
+//    }
+//
+//    static func == (lhs: ProductsModel, rhs: ProductsModel) -> Bool {
+//      lhs.id == rhs.id
+//    }
+}

@@ -12,13 +12,13 @@ protocol ProductsPresenterInput: AnyObject {
     func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
     func fetchProductImage(for product: ProductsModel, cell: ProductsCell)
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }
 
-protocol ProductsPresenterOutput: AnyObject { }
+protocol ProductsPresenterOutput: AnyObject { 
+    func didSelectProduct(with productId: Int)
+}
 
-final class ProductsPresenter: NSObject {
+final class ProductsPresenter {
     weak var view: ProductsViewOutput?
     var interactor: ProductsInteractorInput
     var coordinator: ProductsCoordinator
@@ -35,11 +35,14 @@ extension ProductsPresenter: ProductsPresenterInput {
     func viewDidLoad() {
         interactor.getData()
         view?.setupInitialState()
+        view?.applySnapshot(model: products, animatingDifferences: true)
     }
     
     func obtainedData(products: [ProductsModel]) {
         self.products = products
-        view?.reloadCollectionView()
+        DispatchQueue.main.async {
+            self.view?.applySnapshot(model: products, animatingDifferences: true)
+        }
     }
     
     func fetchProductImage(for product: ProductsModel, cell: ProductsCell) {
@@ -56,32 +59,6 @@ extension ProductsPresenter: ProductsPresenterInput {
             }
         }
     }
-}
-
-extension ProductsPresenter: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        1
-//    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCell.identifier, for: indexPath) as? ProductsCell else {
-            fatalError("Unable to dequeue ProductCell")
-        }
-        let product = products[indexPath.item]
-        fetchProductImage(for: product, cell: cell)
-        cell.configure(with: product)
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectProduct(with: products[indexPath.row].id)
-    }
-
 }
 
 extension ProductsPresenter: ProductsPresenterOutput {
