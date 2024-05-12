@@ -312,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */,
-				0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */,
 			);
 			path = BabyFoodCareProjectUITests;
 			sourceTree = "<group>";
@@ -394,6 +393,7 @@
 		18ED278B59814EC3ACD55DDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */,
 				36C1434D0A6833FE38748A3F /* Pods-BabyFoodCareProject.debug.xcconfig */,
 				7C23E50BD99A67D1388258B4 /* Pods-BabyFoodCareProject.release.xcconfig */,
 				81553E5570FF5D63ACED0EBB /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig */,

@@ -11,65 +11,67 @@ protocol ProductsViewInput: AnyObject { }
 
 protocol ProductsViewOutput: AnyObject {
     func viewDidLoad()
-    func updateProducts(with products: [ProductsModel])
+    func setupInitialState()
+    func reloadCollectionView()
     func didSelectProduct(with id: Int)
 }
 
 final class ProductsView: UIViewController {
     var presenter: ProductsPresenterInput?
-    var products: [ProductsModel] = []
     
-    let layout = UICollectionViewFlowLayout()
-    
-    private lazy var collectionView: UICollectionView = {
-        
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 1
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
-        collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        return collectionView
-    }()
+    private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(collectionView)
-        collectionView.frame = view.bounds
         presenter?.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true // Если вам нужен большой заголовок
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
-//        navigationController?.navigationBar.titleTextAttributes = attributes // Для обычного заголовка
-        navigationController?.navigationBar.largeTitleTextAttributes = attributes // Для большого заголовка
-        title = "Baby Food Care"
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        let availableWidth = collectionView.bounds.width - (layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing)
-        let cellWidth = availableWidth
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: cellWidth, height: 160)
+    func setupInitialState() {
+        setupCollectionView()
+        setupInterface()
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
 }
 
-extension ProductsView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+private extension ProductsView {
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .absolute(160))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCell.identifier, for: indexPath) as? ProductsCell else {
-            fatalError("Unable to dequeue ProductCell")
-        }
-        let products = products[indexPath.item]
-        presenter?.fetchProductImage(for: products, cell: cell)
-        cell.configure(with: products)
-        return cell
+    func setupCollectionView() {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
+        collectionView.register(ProductsCell.self, forCellWithReuseIdentifier: ProductsCell.identifier)
+        collectionView.dataSource = presenter as? any UICollectionViewDataSource
+        collectionView.delegate = presenter as? any UICollectionViewDelegate
+        self.collectionView = collectionView
+    }
+    
+    func setupInterface() {
+        view.backgroundColor = .red
+        view.addSubview(collectionView)
+        collectionView.frame = view.bounds
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
+        title = "Baby Food Care"
     }
 }
 
@@ -79,19 +81,12 @@ extension ProductsView: ProductsViewOutput {
     }
     
     func updateProducts(with products: [ProductsModel]) {
-        self.products = products
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
 }
 
-extension ProductsView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productId = products[indexPath.row].id
-        presenter?.didSelectProduct(with: productId)
-    }
-}
 
 // Вынести в отдельный файл
 final class ProductsCell: UICollectionViewCell {
@@ -147,8 +142,6 @@ final class ProductsCell: UICollectionViewCell {
         button.tintColor = .white
         button.backgroundColor = UIColor(red: 0x0B/255, green: 0xCE/255, blue: 0x83/255, alpha: 1.0)
         button.layer.cornerRadius = 8
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0).cgColor
         return button
     }()
 

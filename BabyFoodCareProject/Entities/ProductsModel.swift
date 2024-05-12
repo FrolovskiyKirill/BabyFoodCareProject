@@ -31,3 +31,4 @@ enum CodingKeys: String, CodingKey {
     case productID = "id"
 }
 
+extension ProductsModel: Hashable { }
