@@ -11,7 +11,7 @@ protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
-    func fetchProductImage(for product: ProductsModel, cell: ProductsCell)
+    func fetchProductImage(for product: ProductsModel, cell: ProductCell)
 }
 
 protocol ProductsPresenterOutput: AnyObject { 
@@ -19,6 +19,8 @@ protocol ProductsPresenterOutput: AnyObject {
 }
 
 final class ProductsPresenter {
+    
+    //MARK: Properties
     weak var view: ProductsViewOutput?
     var interactor: ProductsInteractorInput
     var coordinator: ProductsCoordinator
@@ -31,7 +33,8 @@ final class ProductsPresenter {
     }
 }
 
-extension ProductsPresenter: ProductsPresenterInput { 
+// MARK: ProductsPresenter: ProductsPresenterInput
+extension ProductsPresenter: ProductsPresenterInput {
     func viewDidLoad() {
         interactor.getData()
         view?.setupInitialState()
@@ -45,7 +48,7 @@ extension ProductsPresenter: ProductsPresenterInput {
         }
     }
     
-    func fetchProductImage(for product: ProductsModel, cell: ProductsCell) {
+    func fetchProductImage(for product: ProductsModel, cell: ProductCell) {
         interactor.fetchImageData(urlString: product.imageURL) { result in
             switch result {
             case .success(let data):
@@ -61,6 +64,7 @@ extension ProductsPresenter: ProductsPresenterInput {
     }
 }
 
+// MARK: ProductsPresenter: ProductsPresenterOutput
 extension ProductsPresenter: ProductsPresenterOutput {
     func didSelectProduct(with productId: Int) {
         coordinator.showDetails(for: productId)
