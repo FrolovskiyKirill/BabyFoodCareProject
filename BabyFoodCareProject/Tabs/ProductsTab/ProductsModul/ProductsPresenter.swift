@@ -12,6 +12,8 @@ protocol ProductsPresenterInput: AnyObject {
     func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
     func fetchProductImage(for product: ProductsModel, cell: ProductCell)
+    func searchProducts(with query: String)
+    func resetSearch()
 }
 
 protocol ProductsPresenterOutput: AnyObject { 
@@ -26,6 +28,7 @@ final class ProductsPresenter {
     var coordinator: ProductsCoordinator
     
     private var products: [ProductsModel] = []
+    private var filteredProducts: [ProductsModel] = []
     
     init(interactor: ProductsInteractorInput, coordinator: ProductsCoordinator) {
         self.interactor = interactor
@@ -62,6 +65,17 @@ extension ProductsPresenter: ProductsPresenterInput {
             }
         }
     }
+    
+    func searchProducts(with query: String) {
+        let lowercasedQuery = query.lowercased()
+        filteredProducts = products.filter { $0.title.lowercased().contains(lowercasedQuery) }
+        view?.applySnapshot(model: filteredProducts, animatingDifferences: true)
+    }
+    
+    func resetSearch() {
+        view?.applySnapshot(model: products, animatingDifferences: true)
+    }
+
 }
 
 // MARK: ProductsPresenter: ProductsPresenterOutput

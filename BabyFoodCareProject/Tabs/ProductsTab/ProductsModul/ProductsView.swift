@@ -29,6 +29,14 @@ final class ProductsView: UIViewController {
     
     private lazy var dataSource = makeDataSource()
     private lazy var collectionView: UICollectionView! = nil
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Products"
+        return searchController
+    }()
+
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -95,6 +103,11 @@ private extension ProductsView {
     func setupInterface() {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 42, weight: .bold)]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
@@ -116,4 +129,17 @@ extension ProductsView: UICollectionViewDelegate {
 // MARK: ProductsView: ProductsViewOutput
 extension ProductsView: ProductsViewOutput {
     func didSelectProduct(with id: Int) { }
+}
+
+// MARK: ProductsView: UISearchResultsUpdating
+extension ProductsView: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = searchController.searchBar.text, !query.isEmpty else {
+            // Если строка поиска пуста, покажите все продукты или выполните необходимые действия
+            presenter?.resetSearch()
+            return
+        }
+        // Передайте запрос презентеру для выполнения поиска
+        presenter?.searchProducts(with: query)
+    }
 }
