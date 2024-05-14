@@ -135,11 +135,9 @@ extension ProductsView: ProductsViewOutput {
 extension ProductsView: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text, !query.isEmpty else {
-            // Если строка поиска пуста, покажите все продукты или выполните необходимые действия
             presenter?.resetSearch()
             return
         }
-        // Передайте запрос презентеру для выполнения поиска
         presenter?.searchProducts(with: query)
     }
 }
