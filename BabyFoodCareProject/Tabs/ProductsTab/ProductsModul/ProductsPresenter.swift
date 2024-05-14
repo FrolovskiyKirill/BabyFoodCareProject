@@ -22,7 +22,7 @@ protocol ProductsPresenterOutput: AnyObject {
 
 final class ProductsPresenter {
     
-    //MARK: Properties
+// MARK: Properties
     weak var view: ProductsViewOutput?
     var interactor: ProductsInteractorInput
     var coordinator: ProductsCoordinator
