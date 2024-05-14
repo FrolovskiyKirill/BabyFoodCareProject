@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductCell: UICollectionViewCell {
+final class ProductCell: UICollectionViewCell {
     static let identifier = "ProductCell"
     
     private let imageView: UIImageView = {
@@ -64,13 +64,7 @@ class ProductCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(imageView)
-        contentView.addSubview(foodTitle)
-        contentView.addSubview(ageFrom)
-        contentView.addSubview(dangerAttention)
-        contentView.addSubview(favoriteButton)
-        contentView.addSubview(triedButton)
-        contentView.backgroundColor = .white
+        setupViews()
         setupLayout()
     }
     
@@ -78,13 +72,16 @@ class ProductCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupViews() {
+        contentView.backgroundColor = .white
+        [imageView, foodTitle, ageFrom, dangerAttention, favoriteButton, triedButton].forEach {
+            contentView.addSubview($0)
+        }
+    }
+    
     private func setupLayout() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        foodTitle.translatesAutoresizingMaskIntoConstraints = false
-        ageFrom.translatesAutoresizingMaskIntoConstraints = false
-        dangerAttention.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        triedButton.translatesAutoresizingMaskIntoConstraints = false
+        let views = [imageView, foodTitle, ageFrom, dangerAttention, favoriteButton, triedButton]
+        views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -124,10 +121,11 @@ class ProductCell: UICollectionViewCell {
     }
     
     var model: ProductsModel? {
-      didSet {
-          foodTitle.text = model?.title
-          ageFrom.text = "From: \(String(describing: model?.monthFrom)) month"
-          dangerAttention.text = "Danger: Allergen"
-      }
+        didSet {
+            guard let model else { return }
+            foodTitle.text = model.title
+            ageFrom.text = "From: \(model.monthFrom) month"
+            dangerAttention.text = "Danger: Allergen"
+        }
     }
 }
