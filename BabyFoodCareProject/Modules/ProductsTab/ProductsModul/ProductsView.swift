@@ -33,7 +33,7 @@ final class ProductsView: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Products"
+        searchController.searchBar.placeholder = String(localized: "Search Products")
         return searchController
     }()
 

@@ -15,16 +15,18 @@ protocol ProductsInteractorOutput { }
 
 final class ProductsInteractor: ProductsInteractorInput {
     weak var presenter: ProductsPresenterInput?
-    let APIClient: ProductsProtocol
-    let apiImageClient: ImageProtocol
+    
+    private let APIClient: ProductsProtocol
+    private let apiImageClient: ImageProtocol
     
     var products: [ProductsModel]?
     
-    init(APIClient: ProductsProtocol, apiImageClient: APIImageClient ) {
+    init(APIClient: ProductsProtocol, apiImageClient: APIImageClient) {
         self.APIClient = APIClient
         self.apiImageClient = apiImageClient
     }
     
+    // TODO: Добавить комплишн и в нем вызывать обтаинДата
     func getData() {
         Task.init {
             do {

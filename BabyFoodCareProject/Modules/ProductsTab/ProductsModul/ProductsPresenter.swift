@@ -44,6 +44,7 @@ extension ProductsPresenter: ProductsPresenterInput {
         view?.applySnapshot(model: products, animatingDifferences: true)
     }
     
+    // TODO: смапить во вьюмодель
     func obtainedData(products: [ProductsModel]) {
         self.products = products
         DispatchQueue.main.async {

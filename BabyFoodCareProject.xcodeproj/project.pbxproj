@@ -53,6 +53,8 @@
 		0EC238782B654C77005A6DE0 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238772B654C77005A6DE0 /* ProductsInteractor.swift */; };
 		0EC2387C2B654CB7005A6DE0 /* ProductsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2387B2B654CB7005A6DE0 /* ProductsAssembly.swift */; };
 		0EC2387E2B6583A5005A6DE0 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2387D2B6583A5005A6DE0 /* ProductsModel.swift */; };
+		0ECD6A5B2BF5EC2200B3C6B9 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD6A5A2BF5EC2200B3C6B9 /* ProductsViewModel.swift */; };
+		0ECD6A5D2BFA060B00B3C6B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD6A5C2BFA060B00B3C6B9 /* Localizable.xcstrings */; };
 		2F9B6EB8EED675113483CBF9 /* Pods_BabyFoodCareProject_BabyFoodCareProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0616E7B9AE61F6F9A61DEF30 /* Pods_BabyFoodCareProject_BabyFoodCareProjectUITests.framework */; };
 		3863122E3946B7D245BEF4BB /* Pods_BabyFoodCareProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A226CDB919DB87A80795A87 /* Pods_BabyFoodCareProject.framework */; };
 		6F37D7A94AFCFFA617A9DE35 /* Pods_BabyFoodCareProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E0956C577C00F4BC189A32 /* Pods_BabyFoodCareProjectTests.framework */; };
@@ -127,6 +129,8 @@
 		0EC238772B654C77005A6DE0 /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
 		0EC2387B2B654CB7005A6DE0 /* ProductsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAssembly.swift; sourceTree = "<group>"; };
 		0EC2387D2B6583A5005A6DE0 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
+		0ECD6A5A2BF5EC2200B3C6B9 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		0ECD6A5C2BFA060B00B3C6B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1A226CDB919DB87A80795A87 /* Pods_BabyFoodCareProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyFoodCareProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E0956C577C00F4BC189A32 /* Pods_BabyFoodCareProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyFoodCareProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C1434D0A6833FE38748A3F /* Pods-BabyFoodCareProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProject.debug.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,7 +293,7 @@
 				0EC238682B654798005A6DE0 /* Services */,
 				0EC2386F2B6548AD005A6DE0 /* Entities */,
 				0E9BCF5E2BF14EA70071BF25 /* Cells */,
-				0EC238722B654BB7005A6DE0 /* Tabs */,
+				0EC238722B654BB7005A6DE0 /* Modules */,
 				0EC238662B65435B005A6DE0 /* Resources */,
 			);
 			path = BabyFoodCareProject;
@@ -323,6 +327,7 @@
 				0EC2383D2B6534D4005A6DE0 /* Assets.xcassets */,
 				0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */,
 				0EC238422B6534D4005A6DE0 /* Info.plist */,
+				0ECD6A5C2BFA060B00B3C6B9 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -356,14 +361,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		0EC238722B654BB7005A6DE0 /* Tabs */ = {
+		0EC238722B654BB7005A6DE0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				0E764B612B6FD7FF001924CF /* ProductsTab */,
 				0E764B622B6FD859001924CF /* FavoriteTab */,
 				0E764B632B6FD8A3001924CF /* AccountTab */,
 			);
-			path = Tabs;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		0EC238732B654BC9005A6DE0 /* ProductsModul */ = {
@@ -372,6 +377,7 @@
 				0EC2387B2B654CB7005A6DE0 /* ProductsAssembly.swift */,
 				0EC238772B654C77005A6DE0 /* ProductsInteractor.swift */,
 				0EC238752B654C68005A6DE0 /* ProductsPresenter.swift */,
+				0ECD6A5A2BF5EC2200B3C6B9 /* ProductsViewModel.swift */,
 				0E764B812B700A30001924CF /* ProductsCoordinator.swift */,
 				0EC238382B6534D3005A6DE0 /* ProductsView.swift */,
 			);
@@ -505,6 +511,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 0EC238282B6534D2005A6DE0;
 			productRefGroup = 0EC238322B6534D3005A6DE0 /* Products */;
@@ -525,6 +532,7 @@
 			files = (
 				0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */,
 				0EC2383E2B6534D4005A6DE0 /* Assets.xcassets in Resources */,
+				0ECD6A5D2BFA060B00B3C6B9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +680,7 @@
 				0E764B802B70042E001924CF /* AppCoordinator.swift in Sources */,
 				0E764B692B6FD9D4001924CF /* FavoriteInteractor.swift in Sources */,
 				0EC2387C2B654CB7005A6DE0 /* ProductsAssembly.swift in Sources */,
+				0ECD6A5B2BF5EC2200B3C6B9 /* ProductsViewModel.swift in Sources */,
 				0E764B8A2B715CAF001924CF /* ProductDetailsCoordinator.swift in Sources */,
 				0E764B822B700A30001924CF /* ProductsCoordinator.swift in Sources */,
 				0EC238352B6534D3005A6DE0 /* AppDelegate.swift in Sources */,
