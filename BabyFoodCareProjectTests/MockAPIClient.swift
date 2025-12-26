@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import TinkoffMockStrapping
 @testable import BabyFoodCareProject
 
 final class MockAPIClient: ProductsProtocol, Mockable {

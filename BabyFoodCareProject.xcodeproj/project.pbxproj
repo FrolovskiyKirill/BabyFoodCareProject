@@ -44,7 +44,6 @@
 		0EC238412B6534D4005A6DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2383F2B6534D4005A6DE0 /* LaunchScreen.storyboard */; };
 		0EC2384C2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */; };
 		0EC238562B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */; };
-		0EC238582B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */; };
 		0EC238652B653711005A6DE0 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238642B653710005A6DE0 /* ProductDetailsView.swift */; };
 		0EC2386A2B6547F4005A6DE0 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC238692B6547F4005A6DE0 /* APIRouter.swift */; };
 		0EC2386C2B654839005A6DE0 /* APIRequestDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2386B2B654839005A6DE0 /* APIRequestDispatcher.swift */; };
@@ -56,7 +55,7 @@
 		0ECD6A5B2BF5EC2200B3C6B9 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD6A5A2BF5EC2200B3C6B9 /* ProductsViewModel.swift */; };
 		0ECD6A5D2BFA060B00B3C6B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD6A5C2BFA060B00B3C6B9 /* Localizable.xcstrings */; };
 		2F9B6EB8EED675113483CBF9 /* Pods_BabyFoodCareProject_BabyFoodCareProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0616E7B9AE61F6F9A61DEF30 /* Pods_BabyFoodCareProject_BabyFoodCareProjectUITests.framework */; };
-		3863122E3946B7D245BEF4BB /* Pods_BabyFoodCareProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A226CDB919DB87A80795A87 /* Pods_BabyFoodCareProject.framework */; };
+		381368592EFEA6EE001F571C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 381368582EFEA6EE001F571C /* Swinject */; };
 		6F37D7A94AFCFFA617A9DE35 /* Pods_BabyFoodCareProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E0956C577C00F4BC189A32 /* Pods_BabyFoodCareProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +119,6 @@
 		0EC2384B2B6534D4005A6DE0 /* BabyFoodCareProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectTests.swift; sourceTree = "<group>"; };
 		0EC238512B6534D4005A6DE0 /* BabyFoodCareProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyFoodCareProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC238552B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITests.swift; sourceTree = "<group>"; };
-		0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFoodCareProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0EC238642B653710005A6DE0 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		0EC238692B6547F4005A6DE0 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		0EC2386B2B654839005A6DE0 /* APIRequestDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestDispatcher.swift; sourceTree = "<group>"; };
@@ -133,12 +131,6 @@
 		0ECD6A5C2BFA060B00B3C6B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1A226CDB919DB87A80795A87 /* Pods_BabyFoodCareProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyFoodCareProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E0956C577C00F4BC189A32 /* Pods_BabyFoodCareProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyFoodCareProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C1434D0A6833FE38748A3F /* Pods-BabyFoodCareProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProject.debug.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject.debug.xcconfig"; sourceTree = "<group>"; };
-		424D2AD2DF7E67F8731EDEF8 /* Pods-BabyFoodCareProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProjectTests.release.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProjectTests/Pods-BabyFoodCareProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		7C23E50BD99A67D1388258B4 /* Pods-BabyFoodCareProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProject.release.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject.release.xcconfig"; sourceTree = "<group>"; };
-		81553E5570FF5D63ACED0EBB /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8E43CEBA45DDFBF2AA9E6B55 /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		CA8AF26113178C1D9A7AEDF9 /* Pods-BabyFoodCareProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyFoodCareProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-BabyFoodCareProjectTests/Pods-BabyFoodCareProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3863122E3946B7D245BEF4BB /* Pods_BabyFoodCareProject.framework in Frameworks */,
+				381368592EFEA6EE001F571C /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +261,6 @@
 				0EC2384A2B6534D4005A6DE0 /* BabyFoodCareProjectTests */,
 				0EC238542B6534D4005A6DE0 /* BabyFoodCareProjectUITests */,
 				0EC238322B6534D3005A6DE0 /* Products */,
-				18ED278B59814EC3ACD55DDA /* Pods */,
 				CE1DD7F97ABA8DB24CC7F6CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -396,20 +387,6 @@
 			path = ProductDetailsModul;
 			sourceTree = "<group>";
 		};
-		18ED278B59814EC3ACD55DDA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0EC238572B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift */,
-				36C1434D0A6833FE38748A3F /* Pods-BabyFoodCareProject.debug.xcconfig */,
-				7C23E50BD99A67D1388258B4 /* Pods-BabyFoodCareProject.release.xcconfig */,
-				81553E5570FF5D63ACED0EBB /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig */,
-				8E43CEBA45DDFBF2AA9E6B55 /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.release.xcconfig */,
-				CA8AF26113178C1D9A7AEDF9 /* Pods-BabyFoodCareProjectTests.debug.xcconfig */,
-				424D2AD2DF7E67F8731EDEF8 /* Pods-BabyFoodCareProjectTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		CE1DD7F97ABA8DB24CC7F6CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,11 +404,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EC2385B2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProject" */;
 			buildPhases = (
-				32E282438176130B5FFF5745 /* [CP] Check Pods Manifest.lock */,
 				0EC2382D2B6534D3005A6DE0 /* Sources */,
 				0EC2382E2B6534D3005A6DE0 /* Frameworks */,
 				0EC2382F2B6534D3005A6DE0 /* Resources */,
-				57ED606F9D6B5CE3E2B1F9F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,7 +421,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EC2385E2B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectTests" */;
 			buildPhases = (
-				089EC41952CE2E197056553F /* [CP] Check Pods Manifest.lock */,
 				0EC238432B6534D4005A6DE0 /* Sources */,
 				0EC238442B6534D4005A6DE0 /* Frameworks */,
 				0EC238452B6534D4005A6DE0 /* Resources */,
@@ -465,11 +439,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EC238612B6534D4005A6DE0 /* Build configuration list for PBXNativeTarget "BabyFoodCareProjectUITests" */;
 			buildPhases = (
-				3D38189300DDF6369201A81F /* [CP] Check Pods Manifest.lock */,
 				0EC2384D2B6534D4005A6DE0 /* Sources */,
 				0EC2384E2B6534D4005A6DE0 /* Frameworks */,
 				0EC2384F2B6534D4005A6DE0 /* Resources */,
-				DB517917F6CFA0DE42DD9056 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -514,6 +486,9 @@
 				ru,
 			);
 			mainGroup = 0EC238282B6534D2005A6DE0;
+			packageReferences = (
+				3840C0172EFEA3EE002B6570 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 0EC238322B6534D3005A6DE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -553,109 +528,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		089EC41952CE2E197056553F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BabyFoodCareProjectTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		32E282438176130B5FFF5745 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BabyFoodCareProject-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3D38189300DDF6369201A81F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		57ED606F9D6B5CE3E2B1F9F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject/Pods-BabyFoodCareProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB517917F6CFA0DE42DD9056 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests/Pods-BabyFoodCareProject-BabyFoodCareProjectUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EC2382D2B6534D3005A6DE0 /* Sources */ = {
@@ -718,7 +590,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EC238562B6534D4005A6DE0 /* BabyFoodCareProjectUITests.swift in Sources */,
-				0EC238582B6534D4005A6DE0 /* BabyFoodCareProjectUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,7 +741,6 @@
 		};
 		0EC2385C2B6534D4005A6DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36C1434D0A6833FE38748A3F /* Pods-BabyFoodCareProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -898,7 +768,6 @@
 		};
 		0EC2385D2B6534D4005A6DE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C23E50BD99A67D1388258B4 /* Pods-BabyFoodCareProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -926,7 +795,6 @@
 		};
 		0EC2385F2B6534D4005A6DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA8AF26113178C1D9A7AEDF9 /* Pods-BabyFoodCareProjectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -946,7 +814,6 @@
 		};
 		0EC238602B6534D4005A6DE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 424D2AD2DF7E67F8731EDEF8 /* Pods-BabyFoodCareProjectTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -966,7 +833,6 @@
 		};
 		0EC238622B6534D4005A6DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81553E5570FF5D63ACED0EBB /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -984,7 +850,6 @@
 		};
 		0EC238632B6534D4005A6DE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E43CEBA45DDFBF2AA9E6B55 /* Pods-BabyFoodCareProject-BabyFoodCareProjectUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1040,6 +905,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3840C0172EFEA3EE002B6570 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		381368582EFEA6EE001F571C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3840C0172EFEA3EE002B6570 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0EC238292B6534D2005A6DE0 /* Project object */;
 }
