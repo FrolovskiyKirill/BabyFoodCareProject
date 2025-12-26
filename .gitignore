@@ -1,3 +1,11 @@
+## Tuist ###
+.tuist/
+Derived/
+*.xcodeproj
+*.xcworkspace
+Package.resolved
+.package.resolved
+
 ## CocoaPods ###
 ## CocoaPods GitIgnore Template
 
@@ -13,9 +21,6 @@ Pods/
 
 ## User settings
 xcuserdata/
-
-# Agent instructions
-AGENTS.md
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint

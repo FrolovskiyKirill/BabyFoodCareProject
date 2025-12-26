@@ -33,7 +33,7 @@ final class ProductDetailsInteractor: ProductDetailsInteractorInput {
 extension ProductDetailsInteractor: ProductDetailsInteractorOutput {
     func getData() {
         guard let productId = productId else { return }
-        Task.init {
+        Task {
             do {
                 self.productDetails = try await APIClient.getProductDetails(productID: productId)
                 guard let productDetails = productDetails else { return }
