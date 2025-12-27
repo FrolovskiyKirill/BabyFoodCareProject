@@ -10,11 +10,9 @@ import UIKit
 final class FavoriteAssembly {
     static func makeModule() -> UIViewController {
         let router = FavoriteRouter()
-        let interactor = FavoriteInteractor()
-        let presenter = FavoritePresenter(interactor: interactor, router: router)
+        let presenter = FavoritePresenter(router: router)
         let view = FavoriteView()
         router.presenter = presenter
-        interactor.presenter = presenter
         presenter.view = view
         view.presenter = presenter
         return view

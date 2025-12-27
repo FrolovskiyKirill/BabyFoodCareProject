@@ -9,7 +9,6 @@ import UIKit
 
 protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
-    func obtainedData(products: [ProductsModel])
     func didSelectProduct(with productId: Int)
     func fetchProductImage(for product: ProductsModel, cell: ProductCell)
     func searchProducts(with query: String)
@@ -24,36 +23,55 @@ final class ProductsPresenter {
     
 // MARK: Properties
     weak var view: ProductsViewOutput?
-    var interactor: ProductsInteractorInput
-    var coordinator: ProductsCoordinator
+    private let apiClient: ProductsProtocol
+    private let apiImageClient: ImageProtocol
+    private let coordinator: ProductsCoordinator
     
     private var products: [ProductsModel] = []
     private var filteredProducts: [ProductsModel] = []
     
-    init(interactor: ProductsInteractorInput, coordinator: ProductsCoordinator) {
-        self.interactor = interactor
+    init(apiClient: ProductsProtocol, apiImageClient: ImageProtocol, coordinator: ProductsCoordinator) {
+        self.apiClient = apiClient
+        self.apiImageClient = apiImageClient
         self.coordinator = coordinator
+    }
+    
+    // MARK: Private Methods
+    private func getData() {
+        Task {
+            do {
+                let products = try await apiClient.getProducts()
+                DispatchQueue.main.async {
+                    self.products = products
+                    self.view?.applySnapshot(model: products, animatingDifferences: true)
+                }
+            } catch {
+                print("Fetching products failed with error \(error)")
+            }
+        }
+    }
+    
+    private func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        Task {
+            do {
+                let imageData = try await apiImageClient.fetchImage(urlString: urlString)
+                completion(.success(imageData))
+            } catch {
+                completion(.failure(error))
+            }
+        }
     }
 }
 
 // MARK: ProductsPresenter: ProductsPresenterInput
 extension ProductsPresenter: ProductsPresenterInput {
     func viewDidLoad() {
-        interactor.getData()
         view?.setupInitialState()
-        view?.applySnapshot(model: products, animatingDifferences: true)
-    }
-    
-    // TODO: смапить во вьюмодель
-    func obtainedData(products: [ProductsModel]) {
-        self.products = products
-        DispatchQueue.main.async {
-            self.view?.applySnapshot(model: products, animatingDifferences: true)
-        }
+        getData()
     }
     
     func fetchProductImage(for product: ProductsModel, cell: ProductCell) {
-        interactor.fetchImageData(urlString: product.imageURL) { result in
+        fetchImageData(urlString: product.imageURL) { result in
             switch result {
             case .success(let data):
                 let image = UIImage(data: data)
@@ -62,7 +80,6 @@ extension ProductsPresenter: ProductsPresenterInput {
                 }
             case .failure(let error):
                 print("Ошибка загрузки изображения: \(error)")
-                // Обработка ошибки, возможно установка изображения по умолчанию
             }
         }
     }

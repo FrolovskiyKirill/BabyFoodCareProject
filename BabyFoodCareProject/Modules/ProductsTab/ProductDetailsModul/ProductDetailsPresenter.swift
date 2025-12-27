@@ -16,19 +16,26 @@ protocol ProductDetailsPresenterOutput: AnyObject {
 
 final class ProductDetailsPresenter {
     weak var view: ProductDetailsViewOutput?
-    var interactor: ProductDetailsInteractorInput
-    var coordinator: ProductDetailsCoordinator
-    let productId: Int
+    private let apiClient: ProductDetailsProtocol
+    private let coordinator: ProductDetailsCoordinator
+    private let productId: Int
     
-    init(interactor: ProductDetailsInteractorInput, coordinator: ProductDetailsCoordinator, productId: Int) {
-        self.interactor = interactor
+    init(apiClient: ProductDetailsProtocol, coordinator: ProductDetailsCoordinator, productId: Int) {
+        self.apiClient = apiClient
         self.coordinator = coordinator
         self.productId = productId
     }
     
     func viewDidLoad() {
-        interactor.getProductDetails(with: productId)
-        interactor.getData()
+        Task {
+            do {
+                let productDetails = try await apiClient.getProductDetails(productID: productId)
+                print("Loaded product details: \(productDetails.title)")
+                // TODO: Передать данные в View когда UI будет готов
+            } catch {
+                print("Fetching product details failed with error \(error)")
+            }
+        }
     }
 }
 

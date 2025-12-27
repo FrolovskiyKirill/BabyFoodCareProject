@@ -10,13 +10,10 @@ import UIKit
 final class ProductDetailsAssembly {
     static func makeModule(coordinator: ProductDetailsCoordinator, productId: Int) -> UIViewController {
         @Injected var service: APIClient
-        let interactor = ProductDetailsInteractor(APIClient: service)
-        let presenter = ProductDetailsPresenter(interactor: interactor, coordinator: coordinator, productId: productId)
+        let presenter = ProductDetailsPresenter(apiClient: service, coordinator: coordinator, productId: productId)
         let view = ProductDetailsView()
-        interactor.presenter = presenter
         view.presenter = presenter
         presenter.view = view
         return view
     }
 }
-

@@ -16,11 +16,9 @@ protocol AccountPresenterOutput: AnyObject {
 
 final class AccountPresenter {
     weak var view: AccountViewOutput?
-    var interactor: AccountInteractorInput
     var router: AccountRouterProtocol
     
-    init(interactor: AccountInteractorInput, router: AccountRouterProtocol) {
-        self.interactor = interactor
+    init(router: AccountRouterProtocol) {
         self.router = router
     }
 }
@@ -34,4 +32,3 @@ extension AccountPresenter: AccountPresenterInput {
 extension AccountPresenter: AccountPresenterOutput {
 
 }
-

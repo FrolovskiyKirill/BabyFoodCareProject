@@ -16,11 +16,9 @@ protocol FavoritePresenterOutput: AnyObject {
 
 final class FavoritePresenter {
     weak var view: FavoriteViewOutput?
-    var interactor: FavoriteInteractorInput
     var router: FavoriteRouterProtocol
     
-    init(interactor: FavoriteInteractorInput, router: FavoriteRouterProtocol) {
-        self.interactor = interactor
+    init(router: FavoriteRouterProtocol) {
         self.router = router
     }
 }

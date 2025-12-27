@@ -13,10 +13,8 @@ class ProductsAssembly {
         
         @Injected var service: APIClient
         @Injected var imageService: APIImageClient
-        let interactor = ProductsInteractor(APIClient: service, apiImageClient: imageService)
-        let presenter = ProductsPresenter(interactor: interactor, coordinator: coordinator)
+        let presenter = ProductsPresenter(apiClient: service, apiImageClient: imageService, coordinator: coordinator)
         let view = ProductsView()
-        interactor.presenter = presenter
         presenter.view = view
         view.presenter = presenter
         return view
