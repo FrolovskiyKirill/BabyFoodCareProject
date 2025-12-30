@@ -7,8 +7,8 @@
 
 import UIKit
 
+@MainActor
 class ProductsCoordinator: Coordinator {
-    
     override func start() {
         let productsView = ProductsAssembly.makeModule(coordinator: self)
         navigationController?.pushViewController(productsView, animated: true)

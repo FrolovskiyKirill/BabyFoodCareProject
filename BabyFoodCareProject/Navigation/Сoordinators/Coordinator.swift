@@ -15,6 +15,7 @@ enum CoordinatorType {
     case undefinded
 }
 
+@MainActor
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get set }
     var type: CoordinatorType { get }
@@ -34,14 +35,17 @@ extension CoordinatorProtocol {
     }
 }
 
+@MainActor
 protocol CoordinatorFinishDelegate: AnyObject {
     func coordinatorDidFinish(childCoordinator: CoordinatorProtocol)
 }
 
+@MainActor
 protocol TabBarCoordinator: AnyObject, CoordinatorProtocol {
     var tabBarController: UITabBarController? { get set }
 }
 
+@MainActor
 class Coordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol]
     var type: CoordinatorType
@@ -62,7 +66,6 @@ class Coordinator: CoordinatorProtocol {
     
     deinit {
         print("Coordinator deinited \(type)")
-        childCoordinators.forEach { $0.finishDelegate = nil }
         childCoordinators.removeAll()
     }
     

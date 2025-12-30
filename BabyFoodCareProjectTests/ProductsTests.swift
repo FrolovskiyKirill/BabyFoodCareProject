@@ -8,8 +8,8 @@
 import XCTest
 @testable import BabyFoodCareProject
 
+@MainActor
 final class ProductsTests: XCTestCase {
-    
     var presenter: ProductsPresenter!
     var mockView: MockProductsView!
     var mockApiClient: ProductsProtocol!
@@ -161,6 +161,34 @@ final class ProductsTests: XCTestCase {
         
         XCTAssertEqual(upperCaseCount, lowerCaseCount, "Search should be case insensitive")
         XCTAssertEqual(lowerCaseCount, mixedCaseCount, "Search should be case insensitive")
+    }
+    
+    // MARK: - Test 9: Pull to refresh loads data and ends refreshing
+    func testPullToRefreshLoadsDataAndEndsRefreshing() async throws {
+        // Initial load
+        presenter.viewDidLoad()
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        let initialCallCount = mockView.applySnapshotCallCount
+        
+        // Trigger refresh
+        presenter.refreshData()
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        XCTAssertTrue(mockView.endRefreshingCalled, "endRefreshing should be called after refresh")
+        XCTAssertGreaterThan(mockView.applySnapshotCallCount, initialCallCount, "applySnapshot should be called after refresh")
+        XCTAssertGreaterThan(mockView.lastSnapshot.count, 0, "Snapshot should contain products after refresh")
+    }
+    
+    // MARK: - Test 10: Pull to refresh updates products data
+    func testPullToRefreshUpdatesProductsData() async throws {
+        // Trigger refresh without initial load
+        presenter.refreshData()
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        XCTAssertTrue(mockView.applySnapshotCalled, "applySnapshot should be called after refresh")
+        XCTAssertTrue(mockView.endRefreshingCalled, "endRefreshing should be called after refresh")
+        XCTAssertEqual(mockView.lastSnapshot.first?.id, productModelMock.id, "Refreshed data should match expected")
     }
 
     override func tearDown() {

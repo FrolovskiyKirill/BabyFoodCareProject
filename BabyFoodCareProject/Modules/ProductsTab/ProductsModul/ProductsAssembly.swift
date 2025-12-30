@@ -7,8 +7,8 @@
 
 import UIKit
 
+@MainActor
 class ProductsAssembly {
-    
     static func makeModule(coordinator: ProductsCoordinator) -> UIViewController {
         
         @Injected var service: APIClient

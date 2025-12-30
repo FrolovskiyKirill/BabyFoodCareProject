@@ -13,12 +13,14 @@ protocol ProductsPresenterInput: AnyObject {
     func fetchProductImage(for product: ProductsModel, cell: ProductCell)
     func searchProducts(with query: String)
     func resetSearch()
+    func refreshData()
 }
 
 protocol ProductsPresenterOutput: AnyObject { 
     func didSelectProduct(with productId: Int)
 }
 
+@MainActor
 final class ProductsPresenter {
     
 // MARK: Properties
@@ -41,23 +43,10 @@ final class ProductsPresenter {
         Task {
             do {
                 let products = try await apiClient.getProducts()
-                DispatchQueue.main.async {
-                    self.products = products
-                    self.view?.applySnapshot(model: products, animatingDifferences: true)
-                }
+                self.products = products
+                self.view?.applySnapshot(model: products, animatingDifferences: true)
             } catch {
                 print("Fetching products failed with error \(error)")
-            }
-        }
-    }
-    
-    private func fetchImageData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        Task {
-            do {
-                let imageData = try await apiImageClient.fetchImage(urlString: urlString)
-                completion(.success(imageData))
-            } catch {
-                completion(.failure(error))
             }
         }
     }
@@ -71,14 +60,12 @@ extension ProductsPresenter: ProductsPresenterInput {
     }
     
     func fetchProductImage(for product: ProductsModel, cell: ProductCell) {
-        fetchImageData(urlString: product.imageURL) { result in
-            switch result {
-            case .success(let data):
-                let image = UIImage(data: data)
-                DispatchQueue.main.async {
-                    cell.updateImage(image)
-                }
-            case .failure(let error):
+        Task {
+            do {
+                let imageData = try await apiImageClient.fetchImage(urlString: product.imageURL)
+                let image = UIImage(data: imageData)
+                cell.updateImage(image)
+            } catch {
                 print("Ошибка загрузки изображения: \(error)")
             }
         }
@@ -93,7 +80,20 @@ extension ProductsPresenter: ProductsPresenterInput {
     func resetSearch() {
         view?.applySnapshot(model: products, animatingDifferences: true)
     }
-
+    
+    func refreshData() {
+        Task {
+            do {
+                let products = try await apiClient.getProducts()
+                self.products = products
+                self.view?.applySnapshot(model: products, animatingDifferences: true)
+                self.view?.endRefreshing()
+            } catch {
+                print("Refreshing products failed with error \(error)")
+                self.view?.endRefreshing()
+            }
+        }
+    }
 }
 
 // MARK: ProductsPresenter: ProductsPresenterOutput

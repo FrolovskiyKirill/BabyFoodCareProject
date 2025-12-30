@@ -14,6 +14,7 @@ protocol ProductsViewOutput: AnyObject {
     func setupInitialState()
     func didSelectProduct(with id: Int)
     func applySnapshot(model: [ProductsModel], animatingDifferences: Bool)
+    func endRefreshing()
 }
 
 final class ProductsView: UIViewController {
@@ -36,6 +37,12 @@ final class ProductsView: UIViewController {
         searchController.searchBar.placeholder = String(localized: "Search Products")
         return searchController
     }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refreshControl
+    }()
 
     
     // MARK: Life cycle
@@ -48,6 +55,14 @@ final class ProductsView: UIViewController {
     func setupInitialState() {
         setupCollectionView()
         setupInterface()
+    }
+    
+    func endRefreshing() {
+        refreshControl.endRefreshing()
+    }
+    
+    @objc private func handleRefresh() {
+        presenter?.refreshData()
     }
     
     func applySnapshot(model: [ProductsModel], animatingDifferences: Bool) {
@@ -98,6 +113,7 @@ private extension ProductsView {
         collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
         collectionView.delegate = self
+        collectionView.refreshControl = refreshControl
     }
     
     func setupInterface() {

@@ -14,6 +14,8 @@ final class MockProductsView: ProductsViewOutput {
     var applySnapshotCallCount = 0
     var lastSnapshot: [ProductsModel] = []
     var lastAnimatingDifferences: Bool = false
+    var endRefreshingCalled = false
+    var endRefreshingCallCount = 0
     
     func viewDidLoad() {
         // Not used in tests
@@ -32,5 +34,10 @@ final class MockProductsView: ProductsViewOutput {
     
     func didSelectProduct(with id: Int) {
         // Not used in tests
+    }
+    
+    func endRefreshing() {
+        endRefreshingCalled = true
+        endRefreshingCallCount += 1
     }
 }
