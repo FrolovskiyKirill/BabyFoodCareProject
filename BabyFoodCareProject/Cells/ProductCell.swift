@@ -45,7 +45,7 @@ final class ProductCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "star"), for: .normal)
         button.tintColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         button.layer.cornerRadius = 8
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0).cgColor

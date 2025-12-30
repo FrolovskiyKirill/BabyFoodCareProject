@@ -32,7 +32,11 @@ final class ProductsPresenter {
     private var products: [ProductsModel] = []
     private var filteredProducts: [ProductsModel] = []
     
-    init(apiClient: ProductsProtocol, apiImageClient: ImageProtocol, coordinator: ProductsCoordinator) {
+    init(
+        apiClient: ProductsProtocol,
+        apiImageClient: ImageProtocol,
+        coordinator: ProductsCoordinator
+    ) {
         self.apiClient = apiClient
         self.apiImageClient = apiImageClient
         self.coordinator = coordinator

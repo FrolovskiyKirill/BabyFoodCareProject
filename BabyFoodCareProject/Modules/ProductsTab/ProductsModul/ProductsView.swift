@@ -110,7 +110,7 @@ private extension ProductsView {
     func setupCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor(red: 0xDB/255, green: 0xD8/255, blue: 0xDD/255, alpha: 1.0)
+        collectionView.backgroundColor = .clear
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
         collectionView.delegate = self
         collectionView.refreshControl = refreshControl
