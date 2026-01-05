@@ -9,13 +9,17 @@ import Foundation
 import Swinject
 
 final class Injections {
-    
     static let shared = Injections()
-    var container = Container()
+    let container = Container()
     
     init() {
         container.register(APIClient.self) { _ in APIClient() }
         container.register(APIImageClient.self) { _ in APIImageClient() }
+        container.register(ToastServiceProtocol.self) { _ in
+            MainActor.assumeIsolated {
+                ToastService()
+            }
+        }
     }
     
     var apiClient: APIClient { container.resolve(APIClient.self) ?? APIClient() }

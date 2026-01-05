@@ -28,6 +28,7 @@ final class ProductsPresenter {
     private let apiClient: ProductsProtocol
     private let apiImageClient: ImageProtocol
     private let coordinator: ProductsCoordinator
+    private let toastService: ToastServiceProtocol
     
     private var products: [ProductsModel] = []
     private var filteredProducts: [ProductsModel] = []
@@ -35,11 +36,13 @@ final class ProductsPresenter {
     init(
         apiClient: ProductsProtocol,
         apiImageClient: ImageProtocol,
-        coordinator: ProductsCoordinator
+        coordinator: ProductsCoordinator,
+        toastService: ToastServiceProtocol
     ) {
         self.apiClient = apiClient
         self.apiImageClient = apiImageClient
         self.coordinator = coordinator
+        self.toastService = toastService
     }
     
     // MARK: Private Methods
@@ -51,6 +54,7 @@ final class ProductsPresenter {
                 self.view?.applySnapshot(model: products, animatingDifferences: true)
             } catch {
                 print("Fetching products failed with error \(error)")
+                toastService.showToast(style: .positive, message: String(localized: "Failed to load productsailed to load productsailed to load products"))
             }
         }
     }
@@ -92,9 +96,11 @@ extension ProductsPresenter: ProductsPresenterInput {
                 self.products = products
                 self.view?.applySnapshot(model: products, animatingDifferences: true)
                 self.view?.endRefreshing()
+                toastService.showToast(style: .positive, message: String(localized: "Products updated. Failed to refresh products. Failed to refresh products"))
             } catch {
                 print("Refreshing products failed with error \(error)")
                 self.view?.endRefreshing()
+                toastService.showToast(style: .negative, message: String(localized: "Failed to refresh products"))
             }
         }
     }
