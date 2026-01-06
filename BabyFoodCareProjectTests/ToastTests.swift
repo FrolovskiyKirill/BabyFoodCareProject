@@ -124,6 +124,7 @@ final class ToastViewTests: XCTestCase {
 }
 
 // MARK: - MockToastService Tests
+@MainActor
 final class MockToastServiceTests: XCTestCase {
     
     var mockService: MockToastService!
@@ -140,21 +141,32 @@ final class MockToastServiceTests: XCTestCase {
     
     // MARK: - Test 1: Initial state is correct
     func testInitialState() {
-        XCTAssertFalse(mockService.showToastCalled)
-        XCTAssertEqual(mockService.showToastCallCount, 0)
-        XCTAssertNil(mockService.lastStyle)
-        XCTAssertNil(mockService.lastMessage)
-        XCTAssertTrue(mockService.allMessages.isEmpty)
+        let showToastCalled = mockService.showToastCalled
+        let showToastCallCount = mockService.showToastCallCount
+        let lastStyle = mockService.lastStyle
+        let lastMessage = mockService.lastMessage
+        let allMessages = mockService.allMessages
+        
+        XCTAssertFalse(showToastCalled)
+        XCTAssertEqual(showToastCallCount, 0)
+        XCTAssertNil(lastStyle)
+        XCTAssertNil(lastMessage)
+        XCTAssertTrue(allMessages.isEmpty)
     }
     
     // MARK: - Test 2: showToast updates state correctly
     func testShowToastUpdatesState() {
         mockService.showToast(style: .negative, message: "Error occurred")
         
-        XCTAssertTrue(mockService.showToastCalled)
-        XCTAssertEqual(mockService.showToastCallCount, 1)
-        XCTAssertEqual(mockService.lastStyle, .negative)
-        XCTAssertEqual(mockService.lastMessage, "Error occurred")
+        let showToastCalled = mockService.showToastCalled
+        let showToastCallCount = mockService.showToastCallCount
+        let lastStyle = mockService.lastStyle
+        let lastMessage = mockService.lastMessage
+        
+        XCTAssertTrue(showToastCalled)
+        XCTAssertEqual(showToastCallCount, 1)
+        XCTAssertEqual(lastStyle, .negative)
+        XCTAssertEqual(lastMessage, "Error occurred")
     }
     
     // MARK: - Test 3: Multiple calls increment counter
@@ -163,7 +175,8 @@ final class MockToastServiceTests: XCTestCase {
         mockService.showToast(style: .neutral, message: "Second")
         mockService.showToast(style: .positive, message: "Third")
         
-        XCTAssertEqual(mockService.showToastCallCount, 3)
+        let showToastCallCount = mockService.showToastCallCount
+        XCTAssertEqual(showToastCallCount, 3)
     }
     
     // MARK: - Test 4: Last style and message are updated
@@ -171,8 +184,11 @@ final class MockToastServiceTests: XCTestCase {
         mockService.showToast(style: .negative, message: "First")
         mockService.showToast(style: .positive, message: "Last")
         
-        XCTAssertEqual(mockService.lastStyle, .positive)
-        XCTAssertEqual(mockService.lastMessage, "Last")
+        let lastStyle = mockService.lastStyle
+        let lastMessage = mockService.lastMessage
+        
+        XCTAssertEqual(lastStyle, .positive)
+        XCTAssertEqual(lastMessage, "Last")
     }
     
     // MARK: - Test 5: All messages are stored
@@ -181,13 +197,15 @@ final class MockToastServiceTests: XCTestCase {
         mockService.showToast(style: .neutral, message: "Info")
         mockService.showToast(style: .positive, message: "Success")
         
-        XCTAssertEqual(mockService.allMessages.count, 3)
-        XCTAssertEqual(mockService.allMessages[0].style, .negative)
-        XCTAssertEqual(mockService.allMessages[0].message, "Error")
-        XCTAssertEqual(mockService.allMessages[1].style, .neutral)
-        XCTAssertEqual(mockService.allMessages[1].message, "Info")
-        XCTAssertEqual(mockService.allMessages[2].style, .positive)
-        XCTAssertEqual(mockService.allMessages[2].message, "Success")
+        let allMessages = mockService.allMessages
+        
+        XCTAssertEqual(allMessages.count, 3)
+        XCTAssertEqual(allMessages[0].style, .negative)
+        XCTAssertEqual(allMessages[0].message, "Error")
+        XCTAssertEqual(allMessages[1].style, .neutral)
+        XCTAssertEqual(allMessages[1].message, "Info")
+        XCTAssertEqual(allMessages[2].style, .positive)
+        XCTAssertEqual(allMessages[2].message, "Success")
     }
     
     // MARK: - Test 6: Reset clears all state
@@ -197,11 +215,17 @@ final class MockToastServiceTests: XCTestCase {
         
         mockService.reset()
         
-        XCTAssertFalse(mockService.showToastCalled)
-        XCTAssertEqual(mockService.showToastCallCount, 0)
-        XCTAssertNil(mockService.lastStyle)
-        XCTAssertNil(mockService.lastMessage)
-        XCTAssertTrue(mockService.allMessages.isEmpty)
+        let showToastCalled = mockService.showToastCalled
+        let showToastCallCount = mockService.showToastCallCount
+        let lastStyle = mockService.lastStyle
+        let lastMessage = mockService.lastMessage
+        let allMessages = mockService.allMessages
+        
+        XCTAssertFalse(showToastCalled)
+        XCTAssertEqual(showToastCallCount, 0)
+        XCTAssertNil(lastStyle)
+        XCTAssertNil(lastMessage)
+        XCTAssertTrue(allMessages.isEmpty)
     }
     
     // MARK: - Test 7: Can call showToast after reset
@@ -210,14 +234,20 @@ final class MockToastServiceTests: XCTestCase {
         mockService.reset()
         mockService.showToast(style: .positive, message: "After reset")
         
-        XCTAssertTrue(mockService.showToastCalled)
-        XCTAssertEqual(mockService.showToastCallCount, 1)
-        XCTAssertEqual(mockService.lastStyle, .positive)
-        XCTAssertEqual(mockService.lastMessage, "After reset")
+        let showToastCalled = mockService.showToastCalled
+        let showToastCallCount = mockService.showToastCallCount
+        let lastStyle = mockService.lastStyle
+        let lastMessage = mockService.lastMessage
+        
+        XCTAssertTrue(showToastCalled)
+        XCTAssertEqual(showToastCallCount, 1)
+        XCTAssertEqual(lastStyle, .positive)
+        XCTAssertEqual(lastMessage, "After reset")
     }
 }
 
 // MARK: - ToastService Protocol Conformance Tests
+@MainActor
 final class ToastServiceProtocolTests: XCTestCase {
     
     // MARK: - Test 1: MockToastService conforms to protocol
@@ -234,7 +264,8 @@ final class ToastServiceProtocolTests: XCTestCase {
         service.showToast(style: .neutral, message: "Protocol test")
         
         if let mock = service as? MockToastService {
-            XCTAssertTrue(mock.showToastCalled)
+            let showToastCalled = mock.showToastCalled
+            XCTAssertTrue(showToastCalled)
         }
     }
 }

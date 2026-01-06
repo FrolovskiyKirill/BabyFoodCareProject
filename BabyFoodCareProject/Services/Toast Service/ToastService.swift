@@ -7,7 +7,6 @@
 
 import UIKit
 
-@MainActor
 protocol ToastServiceProtocol {
     func showToast(style: ToastStyle, message: String)
 }
