@@ -20,6 +20,7 @@ final class Injections {
                 ToastService()
             }
         }
+        container.register(CacheServiceProtocol.self) { _ in CacheService() }.inObjectScope(.container)
     }
     
     var apiClient: APIClient { container.resolve(APIClient.self) ?? APIClient() }

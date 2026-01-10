@@ -29,6 +29,7 @@ final class ProductsPresenter {
     private let apiImageClient: ImageProtocol
     private let coordinator: ProductsCoordinator
     private let toastService: ToastServiceProtocol
+    private let cacheService: CacheServiceProtocol
     
     private var products: [ProductsModel] = []
     private var filteredProducts: [ProductsModel] = []
@@ -37,24 +38,43 @@ final class ProductsPresenter {
         apiClient: ProductsProtocol,
         apiImageClient: ImageProtocol,
         coordinator: ProductsCoordinator,
-        toastService: ToastServiceProtocol
+        toastService: ToastServiceProtocol,
+        cacheService: CacheServiceProtocol
     ) {
         self.apiClient = apiClient
         self.apiImageClient = apiImageClient
         self.coordinator = coordinator
         self.toastService = toastService
+        self.cacheService = cacheService
     }
     
     // MARK: Private Methods
+    
+    /// Fetches products using Network-first strategy with cache fallback
     private func getData() {
         Task {
+            let cacheKey = CacheKey.products()
+            
             do {
+                // Network-first: try to fetch from API
                 let products = try await apiClient.getProducts()
                 self.products = products
+                
+                // Cache the successful response
+                await cacheService.set(products, for: cacheKey)
+                
                 self.view?.applySnapshot(model: products, animatingDifferences: true)
             } catch {
                 print("Fetching products failed with error \(error)")
-                toastService.showToast(style: .positive, message: String(localized: "Failed to load productsailed to load productsailed to load products"))
+                
+                // Fallback to stale cache on network error
+                if let cachedProducts: [ProductsModel] = await cacheService.getStale(for: cacheKey) {
+                    self.products = cachedProducts
+                    self.view?.applySnapshot(model: cachedProducts, animatingDifferences: true)
+                    toastService.showToast(style: .neutral, message: String(localized: "Showing cached data"))
+                } else {
+                    toastService.showToast(style: .negative, message: String(localized: "Failed to load products"))
+                }
             }
         }
     }
@@ -89,14 +109,24 @@ extension ProductsPresenter: ProductsPresenterInput {
         view?.applySnapshot(model: products, animatingDifferences: true)
     }
     
+    /// Pull-to-refresh: force update from network, invalidate cache
     func refreshData() {
         Task {
+            let cacheKey = CacheKey.products()
+            
+            // Invalidate cache before refresh
+            await cacheService.invalidate(for: cacheKey)
+            
             do {
                 let products = try await apiClient.getProducts()
                 self.products = products
+                
+                // Cache the new data
+                await cacheService.set(products, for: cacheKey)
+                
                 self.view?.applySnapshot(model: products, animatingDifferences: true)
                 self.view?.endRefreshing()
-                toastService.showToast(style: .positive, message: String(localized: "Products updated. Failed to refresh products. Failed to refresh products"))
+                toastService.showToast(style: .positive, message: String(localized: "Products updated"))
             } catch {
                 print("Refreshing products failed with error \(error)")
                 self.view?.endRefreshing()

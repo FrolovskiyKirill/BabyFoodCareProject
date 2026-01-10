@@ -8,17 +8,20 @@
 import UIKit
 
 @MainActor
-class ProductsAssembly {
+final class ProductsAssembly {
     static func makeModule(coordinator: ProductsCoordinator) -> UIViewController {
         
         @Injected var service: APIClient
         @Injected var imageService: APIImageClient
         @Injected var toastService: ToastServiceProtocol
+        @Injected var cacheService: CacheServiceProtocol
+        
         let presenter = ProductsPresenter(
             apiClient: service,
             apiImageClient: imageService,
             coordinator: coordinator,
-            toastService: toastService
+            toastService: toastService,
+            cacheService: cacheService
         )
         let view = ProductsView()
         presenter.view = view

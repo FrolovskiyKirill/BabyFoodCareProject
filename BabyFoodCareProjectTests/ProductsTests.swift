@@ -16,6 +16,7 @@ final class ProductsTests: XCTestCase {
     var mockImageClient: ImageProtocol!
     var mockCoordinator: MockProductsCoordinator!
     var mockToastService: MockToastService!
+    var mockCacheService: MockCacheService!
     
     override func setUp() {
         super.setUp()
@@ -24,12 +25,14 @@ final class ProductsTests: XCTestCase {
         mockImageClient = APIImageClient()
         mockCoordinator = MockProductsCoordinator(type: .products, navigationController: UINavigationController())
         mockToastService = MockToastService()
+        mockCacheService = MockCacheService()
         
         presenter = ProductsPresenter(
             apiClient: mockApiClient,
             apiImageClient: mockImageClient,
             coordinator: mockCoordinator,
-            toastService: mockToastService
+            toastService: mockToastService,
+            cacheService: mockCacheService
         )
         presenter.view = mockView
     }
@@ -201,6 +204,7 @@ final class ProductsTests: XCTestCase {
         mockImageClient = nil
         mockCoordinator = nil
         mockToastService = nil
+        mockCacheService = nil
         super.tearDown()
     }
 }
