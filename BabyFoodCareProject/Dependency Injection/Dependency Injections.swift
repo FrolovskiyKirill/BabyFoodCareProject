@@ -15,22 +15,19 @@ final class Injections {
     init() {
         container.register(APIClient.self) { _ in APIClient() }
         container.register(APIImageClient.self) { _ in APIImageClient() }
-        container.register(ToastServiceProtocol.self) { _ in
-            MainActor.assumeIsolated {
-                ToastService()
-            }
-        }
+        container.register(ToastServiceProtocol.self) { _ in ToastService() }.inObjectScope(.container)
         container.register(CacheServiceProtocol.self) { _ in CacheService() }.inObjectScope(.container)
     }
     
-    var apiClient: APIClient { container.resolve(APIClient.self) ?? APIClient() }
-    var apiImageClient: APIImageClient { container.resolve(APIImageClient.self) ?? APIImageClient() }
 }
 
 @propertyWrapper struct Injected<Dependency> {
-  let wrappedValue: Dependency
- 
-  init() {
-    self.wrappedValue = Injections.shared.container.resolve(Dependency.self)!
-  }
+    let wrappedValue: Dependency
+    
+    init() {
+        guard let resolved = Injections.shared.container.resolve(Dependency.self) else {
+            fatalError("Dependency \(Dependency.self) is not registered in the container")
+        }
+        self.wrappedValue = resolved
+    }
 }

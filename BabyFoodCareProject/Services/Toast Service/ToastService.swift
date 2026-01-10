@@ -7,17 +7,16 @@
 
 import UIKit
 
-protocol ToastServiceProtocol {
+protocol ToastServiceProtocol: Sendable {
     func showToast(style: ToastStyle, message: String)
 }
 
-@MainActor
-final class ToastService: ToastServiceProtocol {
+final class ToastService: ToastServiceProtocol, @unchecked Sendable {
     
     // MARK: Properties
-    private var toastWindow: UIWindow?
-    private var activeToasts: [ToastView] = []
-    private var dismissTasks: [ToastView: Task<Void, Never>] = [:]
+    @MainActor private var toastWindow: UIWindow?
+    @MainActor private var activeToasts: [ToastView] = []
+    @MainActor private var dismissTasks: [ToastView: Task<Void, Never>] = [:]
     
     private let toastSpacing: CGFloat = 8
     private let horizontalPadding: CGFloat = 16
@@ -25,13 +24,14 @@ final class ToastService: ToastServiceProtocol {
     private let animationDuration: TimeInterval = 1.2
     
     // MARK: Public Methods
-    nonisolated func showToast(style: ToastStyle, message: String) {
-        Task { @MainActor in
-            presentToast(style: style, message: message)
+    func showToast(style: ToastStyle, message: String) {
+        Task { @MainActor [weak self] in
+            self?.presentToast(style: style, message: message)
         }
     }
     
     // MARK: Private Methods
+    @MainActor
     private func presentToast(style: ToastStyle, message: String) {
         setupWindowIfNeeded()
         
@@ -70,6 +70,7 @@ final class ToastService: ToastServiceProtocol {
         scheduleAutoDismiss(for: toastView)
     }
     
+    @MainActor
     private func setupWindowIfNeeded() {
         guard toastWindow == nil else { return }
         
@@ -92,6 +93,7 @@ final class ToastService: ToastServiceProtocol {
         self.toastWindow = window
     }
     
+    @MainActor
     private func setupToastConstraints(_ toastView: ToastView, in window: UIWindow) {
         NSLayoutConstraint.activate([
             toastView.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: horizontalPadding),
@@ -100,6 +102,7 @@ final class ToastService: ToastServiceProtocol {
         ])
     }
     
+    @MainActor
     private func repositionActiveToasts(animated: Bool) {
         var yOffset: CGFloat = 0
         
@@ -131,6 +134,7 @@ final class ToastService: ToastServiceProtocol {
         }
     }
     
+    @MainActor
     private func scheduleAutoDismiss(for toastView: ToastView) {
         let task = Task { [weak self] in
             try? await Task.sleep(nanoseconds: self?.dismissDuration ?? 3_000_000_000)
@@ -140,6 +144,7 @@ final class ToastService: ToastServiceProtocol {
         dismissTasks[toastView] = task
     }
     
+    @MainActor
     private func dismissToast(_ toastView: ToastView) {
         dismissTasks[toastView]?.cancel()
         dismissTasks.removeValue(forKey: toastView)
@@ -163,6 +168,7 @@ final class ToastService: ToastServiceProtocol {
         }
     }
     
+    @MainActor
     private func hideWindowIfNeeded() {
         if activeToasts.isEmpty {
             toastWindow?.isHidden = true
