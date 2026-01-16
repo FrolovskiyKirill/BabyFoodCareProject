@@ -8,6 +8,7 @@
 import Foundation
 @testable import BabyFoodCareProject
 
+@MainActor
 final class MockToastService: ToastServiceProtocol {
     
     // MARK: Properties

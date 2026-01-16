@@ -247,8 +247,8 @@ actor CacheService: CacheServiceProtocol {
     }
     
     // MARK: - Logging
-    
-    private func log(_ message: String) {
+
+    nonisolated private func log(_ message: String) {
         print("[CacheService] \(message)")
     }
 }

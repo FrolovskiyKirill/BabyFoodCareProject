@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ProductsPresenterInput: AnyObject {
     func viewDidLoad()
     func didSelectProduct(with productId: Int)
@@ -16,7 +17,8 @@ protocol ProductsPresenterInput: AnyObject {
     func refreshData()
 }
 
-protocol ProductsPresenterOutput: AnyObject { 
+@MainActor
+protocol ProductsPresenterOutput: AnyObject {
     func didSelectProduct(with productId: Int)
 }
 

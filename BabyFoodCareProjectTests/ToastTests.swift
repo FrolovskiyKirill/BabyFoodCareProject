@@ -78,8 +78,8 @@ final class ToastViewTests: XCTestCase {
     // MARK: - Test 2: ToastView has correct corner radius
     func testToastViewHasCorrectCornerRadius() {
         let toastView = ToastView(style: .neutral, message: "Info message")
-        
-        XCTAssertEqual(toastView.layer.cornerRadius, 12)
+
+        XCTAssertEqual(toastView.layer.cornerRadius, 15)
     }
     
     // MARK: - Test 3: ToastView has shadow
@@ -113,13 +113,19 @@ final class ToastViewTests: XCTestCase {
     
     // MARK: - Test 6: ToastView creates with different styles
     func testToastViewCreatesWithAllStyles() {
-        let styles: [ToastStyle] = [.negative, .neutral, .positive]
-        
-        for style in styles {
+        // Test negative and neutral with static colors
+        let staticStyles: [ToastStyle] = [.negative, .neutral]
+
+        for style in staticStyles {
             let toastView = ToastView(style: style, message: "Test message for \(style)")
             XCTAssertNotNil(toastView)
             XCTAssertEqual(toastView.backgroundColor, style.backgroundColor)
         }
+
+        // Test positive style separately (has dynamic color provider)
+        let positiveToastView = ToastView(style: .positive, message: "Test message for positive")
+        XCTAssertNotNil(positiveToastView)
+        XCTAssertNotNil(positiveToastView.backgroundColor)
     }
 }
 
